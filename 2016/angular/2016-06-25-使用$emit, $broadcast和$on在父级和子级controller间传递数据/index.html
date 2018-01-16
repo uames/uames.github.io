@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 使用$emit, $broadcast和$on在父级和子级controller间传递数据 · A place for myself to write something</title><meta name="description" content="使用$emit, $broadcast和$on在父级和子级controller间传递数据 - uames"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/uames" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">使用$emit, $broadcast和$on在父级和子级controller间传递数据</h1><div class="post-info">Jul 12, 2016</div><div class="post-content"><p>使用$emit, $broadcast和$on在父级和子级controller间传递数据</p>
+<blockquote>
+<p>AngularJS中的作用域有一个非常有层次和嵌套分明的结构。其中它们都有一个主要的$rootScope(也就说对应的Angular应用或者ng-app)，然后其他所有的作用域部分都是继承自这个$rootScope的，或者说都是嵌套在主作用域下面的。很多时候，你会发现这些作用域不会共享变量或者说都不会从另一个原型继承什么。</p>
+<p>那么在这种情况下，如何在作用域之间通信呢？其中一个选择就是在应用程序作用域之中创建一个单例服务，然后通过这个服务处理所有子作用域的通信。</p>
+<p>在AngularJS中还有另外一个选择：通过作用域中的事件处理通信。但是这种方法有一些限制；例如，你并不能广泛的将事件传播到所有监控的作用域中。你必须选择是否与父级作用域或者子作用域通信。</p>
+</blockquote>
+<p>$on、$emit和$broadcast使得event、data在controller之间的传递变的简单。  </p>
+<ul>
+<li>$emit只能向parent controller传递event与data  </li>
+<li>$broadcast只能向child controller传递event与data  </li>
+<li>$on用于接收event与data  </li>
+</ul>
+<p>例子如下</p>
+<p>html代码  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"ParentCtrl"</span>&gt;</span>                <span class="comment">&lt;!--父级--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"SelfCtrl"</span>&gt;</span>              <span class="comment">&lt;!--自己--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">ng-click</span>=<span class="string">"click()"</span>&gt;</span>click me<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"ChildCtrl"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>   <span class="comment">&lt;!--子级--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"BroCtrl"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>         <span class="comment">&lt;!--平级--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>js代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">app.controller(<span class="string">'SelfCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">    $scope.click = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $scope.$broadcast(<span class="string">'to-child'</span>, <span class="string">'child'</span>);</span><br><span class="line">        $scope.$emit(<span class="string">'to-parent'</span>, <span class="string">'parent'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.controller(<span class="string">'ParentCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">    $scope.$on(<span class="string">'to-parent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event,data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ParentCtrl'</span>, data);       <span class="comment">//父级能得到值</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $scope.$on(<span class="string">'to-child'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event,data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ParentCtrl'</span>, data);       <span class="comment">//子级得不到值</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.controller(<span class="string">'ChildCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">    $scope.$on(<span class="string">'to-child'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event,data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ChildCtrl'</span>, data);         <span class="comment">//子级能得到值</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $scope.$on(<span class="string">'to-parent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event,data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ChildCtrl'</span>, data);         <span class="comment">//父级得不到值</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.controller(<span class="string">'BroCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;  </span><br><span class="line">    $scope.$on(<span class="string">'to-parent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event,data</span>) </span>&#123;  </span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'BroCtrl'</span>, data);          <span class="comment">//平级得不到值  </span></span><br><span class="line">    &#125;);  </span><br><span class="line">    $scope.$on(<span class="string">'to-child'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event,data</span>) </span>&#123;  </span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'BroCtrl'</span>, data);          <span class="comment">//平级得不到值  </span></span><br><span class="line">    &#125;);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>最终结果</p>
+<p>ParentCtrl parent</p>
+<p>ChildCtrl child</p>
+<p>$emit和$broadcast可以传多个参数，$on也可以接收多个参数。<br>在$on的方法中的event事件参数，其对象的属性和方法如下  </p>
+<table>
+<thead>
+<tr>
+<th>事件属性</th>
+<th style="text-align:center">目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event.targetScope</td>
+<td style="text-align:center">发出或者传播原始事件的作用域</td>
+</tr>
+<tr>
+<td>event.currentScope</td>
+<td style="text-align:center">目前正在处理的事件的作用域</td>
+</tr>
+<tr>
+<td>event.name</td>
+<td style="text-align:center">事件名称</td>
+</tr>
+<tr>
+<td>event.stopPropagation()</td>
+<td style="text-align:center">一个防止事件进一步传播(冒泡/捕获)的函数(这只适用于使用<code>$emit</code>发出的事件)</td>
+</tr>
+<tr>
+<td>event.preventDefault()    这个方法实际上不会做什么事，但是会设置<code>defaultPrevented</code>为true</td>
+<td style="text-align:center">event.preventDefault()    这个方法实际上不会做什么事，但是会设置<code>defaultPrevented</code>为true。直到事件监听器的实现者采取行动之前它才会检查<code>defaultPrevented</code>的值</td>
+</tr>
+<tr>
+<td>event.defaultPrevented</td>
+<td style="text-align:center">如果调用了<code>preventDefault</code>则为true</td>
+</tr>
+</tbody>
+</table>
+<p>service在不同controller中通信要方便许多~~</p>
+<p>转于<a href="http://www.cnblogs.com/CraryPrimitiveMan/p/3679552.html" target="_blank" rel="noopener">博客园</a></p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/2016-06-19-mui-nstruction/" class="prev">PREV</a><a href="/2016/2016-06-19-Python扫描并复制文件-读取文件列表复制文件/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://uames.github.io">uames</a>, unless otherwise noted.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>

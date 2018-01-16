@@ -1,0 +1,78 @@
+<!doctype html>
+<!-- 讲座系统的教师端页面 -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <meta name="format-detection" content="address=no">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <link rel="shortcut icon" href="" type="image/x-icon">
+  <!-- <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdn.bootcss.com/socket.io/1.7.3/socket.io.js"></script> -->
+  <style media="screen">
+    .xesLoading,body,html{height:100%}.reload_tips,.xesName,.xes_btn_RelLoad{position:absolute;text-align:center}html{font-size:62.5%;background:#eee}body{position:relative;line-height:1;font-family:"Microsoft Yahei";background-color:#fff;font-size:12px;color:#5d5b5b;min-width:320px;max-width:640px;margin:0 auto}ul{list-style:none;padding:0}.xesLoading{position:absolute;display:block;top:0;bottom:0;z-index:10;width:100%;background:#fff;overflow:hidden}.logoBox{position:absolute;display:block;top:100px;left:50%;width:64px;height:40px;background-color:#9CCC65!important;margin:0 0 0 -32px;border-radius:8px}.xesName{top:150px;font-size:1.5rem;color:#a7a7a7;width:100%}@-webkit-keyframes qlanime{0%,100%,85%{height:10px;margin-top:-5px}40%{height:30px;margin-top:-15px}80%{height:14px;margin-top:-7px}}@keyframes qlanime{0%,100%,85%{height:10px;margin-top:-5px}40%{height:30px;margin-top:-15px}80%{height:14px;margin-top:-7px}}@-webkit-keyframes qlanime1{0%,100%,85%{height:20px;margin-top:-10px}20%{height:30px;margin-top:-15px}60%{height:10px;margin-top:-5px}80%{height:16px;margin-top:-8px}}@keyframes qlanime1{0%,100%,85%{height:20px;margin-top:-10px}20%{height:30px;margin-top:-15px}60%{height:10px;margin-top:-5px}80%{height:16px;margin-top:-8px}}@-webkit-keyframes qlanime2{0%,100%,85%{height:30px;margin-top:-15px}40%{height:10px;margin-top:-5px}80%{height:26px;margin-top:-13px}}@keyframes qlanime2{0%,100%,85%{height:30px;margin-top:-15px}40%{height:10px;margin-top:-5px}80%{height:26px;margin-top:-13px}}.logoBox li{display:inline-block;position:absolute;top:50%;right:32px;background-color:#fff;height:10px;width:4px;margin-top:-5px;border-radius:4px}
+    .logoBox li:nth-child(1){margin-right:14px;height:10px;margin-top:-5px}.logoBox li:nth-child(2){margin-right:6px;height:20px;margin-top:-10px}.logoBox li:nth-child(3){margin-right:-2px;height:30px;margin-top:-15px}.logoBox li:nth-child(4){margin-right:-10px;height:20px;margin-top:-10px}.logoBox li:nth-child(5){margin-right:-18px;height:10px;margin-top:-5px}.logoBox li:nth-child(1),.logoBox li:nth-child(5){animation:qlanime .7s cubic-bezier(.72,.41,.41,.68) .1s alternate infinite;-moz-animation:qlanime .7s cubic-bezier(.72,.41,.41,.68) .1s alternate infinite;-webkit-animation:qlanime .7s cubic-bezier(.72,.41,.41,.68) .1s alternate infinite}.logoBox li:nth-child(2),.logoBox li:nth-child(4){animation:qlanime1 .7s cubic-bezier(.72,.41,.41,.68) .1s alternate infinite;-moz-animation:qlanime1 .7s cubic-bezier(.72,.41,.41,.68) .1s alternate infinite;-webkit-animation:qlanime1 .7s cubic-bezier(.72,.41,.41,.68) .1s alternate infinite}.logoBox li:nth-child(3){animation:qlanime2 .7s cubic-bezier(.72,.41,.41,.68) .1s alternate infinite;-moz-animation:qlanime2 .7s cubic-bezier(.72,.41,.41,.68) .1s alternate infinite;-webkit-animation:qlanime2 .7s cubic-bezier(.72,.41,.41,.68) .1s alternate infinite}#xes_btn_RelLoad_box{display:none}.reload_tips{top:220px;font-size:1.2rem;color:#b4b4b4;width:100%}.xes_btn_RelLoad{top:260px;left:50%;width:60px;height:30px;margin-left:-30px;line-height:30px;border:1px solid #e5e5e5;background:#fff;color:#9CCC65;border-radius:3px;font-size:15px}
+  </style>
+  <title>选择你的初中人生</title>
+
+</head>
+<body style="position:relative;">
+  <div id="firstCon" class="firstCon">
+    <div class="f_word">
+      左划右划
+      <p>选择你自己的</p>
+      <p class="t_word">初中人生</p>
+      <span id="beginBtn" class="beginBtn t_word">开始</span>
+    </div>
+  </div>
+  <div id="secondCon" class="firstCon2" style="display:none;">
+    <p class="archiveMsg"></p>
+    <img class="archiveImg" src="/img/upgrade/boss_smile.jpg" alt="" style="width:100%">
+    <div id='btnCon' class="layui-m-layerbtn fixBottom" style="display:block">
+      <span id="again" no="" type="0">再来一次</span><span id="toActivity" yes="" type="1">去参加模拟志愿填报</span>
+    </div>
+  </div>
+  <div id="zytb" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);z-index:100;">
+      <div style="display:flex;width:100%;height:100%;justify-content:center;align-items:center;">
+        <img src="/img/upgrade/webwxgetmsgimg.jpg"  style="width:100%;"/>
+      </div>
+  </div>
+  <audio id="audioTag" src="http://cdn.gzpeiyou.com/single/audio/be_happy.mp3" autoplay preload loop="loop"></audio>
+  <div class="xesLoading">
+      <ul class="logoBox"><li></li>   <li></li>   <li></li>   <li></li>   <li></li></ul>
+      <div class="xesName">学而思</div>
+      <div id="xes_btn_RelLoad_box">
+          <div class="reload_tips">卡住了？刷新一下～</div>
+          <a class="xes_btn_RelLoad" href="javascript:;" onclick="if(/\?/.test(window.location.href))window.location.href = (window.location.href).replace(/(\&?)(restime\=)(\w+)/,'')+'&restime='+new Date().getTime();else window.location.href = (window.location.href).replace(/(\&?)(restime\=)(\w+)/,'')+'?restime='+new Date().getTime();">刷新</a>
+      </div>
+  </div>
+  <div id="answer" class="answer"></div>
+  <div id="slider" class="swipe">
+    <div class="swipe-wrap"></div>
+  </div>
+  <!-- <div id='btnCon' class="layui-m-layerbtn fixBottom"><span id="again" no="" type="0">再来一次</span><span id="toActivity" yes="" type="1">去参加模拟志愿填报</span></div> -->
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/layer/3.0.1/mobile/layer.min.js"></script>
+
+<script type="text/javascript">
+  $(function(){
+    window.app = {};
+    app.dynamicLoadingJs=function(e,d){var c=document.createElement("script");var b=document.getElementsByTagName("head")[0];c.src=e;if(typeof d==="function"){var a;c.onload=c.onreadystatechange=function(){if(!a&&(!c.readyState||/loaded|complete/.test(c.readyState))){c.onload=c.onreadystatechange=null;a=true;d()}}}b.appendChild(c)};
+
+    app.resPath = '/';
+    if(location.href.indexOf('.single')>-1 || location.href.indexOf('localhost-test')>-1){
+      app.resPath = '/';
+    }
+
+    app.dynamicLoadingJs(app.resPath+'js/upgrade/init.js?bust='+new Date().getTime());
+  });
+
+
+</script>
+</html>

@@ -1,0 +1,1 @@
+window.dynamicLoadingJs=function(e,d){var c=document.createElement("script");var b=document.getElementsByTagName("head")[0];c.src=e;if(typeof d==="function"){var a;c.onload=c.onreadystatechange=function(){if(!a&&(!c.readyState||/loaded|complete/.test(c.readyState))){c.onload=c.onreadystatechange=null;a=true;d()}}}b.appendChild(c)};
