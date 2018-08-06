@@ -227,15 +227,19 @@
 						sendData,
 						function (data) {
 							$('#loading').hide();
+							debugger;
 							if(data.status == 1){
+								var mainId = userInfo.MAIN_ID;
 								userInfo.MAIN_ID = sendData.user;//更新主账号
 								userInfo.passWord = sendData.pass;//存密码，客户端用
 								enterplorer_login.setInfo(JSON.stringify(userInfo));
-								if(sendData.user != userInfo.MAIN_ID){
+								if(sendData.user != mainId){
 									//主账号切换时，提前去获取第一个从账号并登录
 									getUserCodes(!!data.data.sessionId);
+								}else if(!data.data.sessionId){//goHome只能在MAIN_ID不变且无验证码时调用
+									enterplorer_login.goHome();
 								}
-								if(!!data.data.sessionId){
+								if(!!data.data.sessionId){//只要发了验证码，那就显示输入框
 									$("#code").val('');
 									$("#codeCon").show();
 									sendData.sessionId = data.data.sessionId;
@@ -284,7 +288,7 @@
 								enterplorer_login.setInfo(JSON.stringify(userInfo));
 								enterplorer_login.toCrmRun("__ysp_exit()");
 								enterplorer_login.toCrmRun("__ysp_submitForm()");
-								if(hasSessionId){
+								if(!hasSessionId){
 									enterplorer_login.goHome();
 								}
 							}else{
