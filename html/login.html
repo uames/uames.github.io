@@ -211,7 +211,7 @@
 				$("#alert").hide();
 			});
 			if(typeof(enterplorer_login)=='undefined'){
-				_alert('仅支持在掌上营业厅打开');
+				_alert('仅支持在掌上营业厅打开1');
 			}
 			var showLoading = function(text){
 				$('#loading').show();
@@ -229,17 +229,16 @@
 							$('#loading').hide();
 							if(data.status == 1){
 								userInfo.MAIN_ID = sendData.user;//更新主账号
+								userInfo.passWord = sendData.pass;//存密码，客户端用
 								enterplorer_login.setInfo(JSON.stringify(userInfo));
 								if(sendData.user != userInfo.MAIN_ID){
 									//主账号切换时，提前去获取第一个从账号并登录
-									getUserCodes(true);
+									getUserCodes(!!data.data.sessionId);
 								}
 								if(!!data.data.sessionId){
 									$("#code").val('');
 									$("#codeCon").show();
 									sendData.sessionId = data.data.sessionId;
-								}else{
-									enterplorer_login.goHome();
 								}
 							}else{
 								_alert(data.message);
@@ -271,7 +270,7 @@
 				$('.sub_accounts').html(_html.join(''));
 				$('#sub_accounts').show();
 			}
-			var getUserCodes = function(isFirst){
+			var getUserCodes = function(hasSessionId){
 				showLoading('正在获取从账号');
 				$.post('http://'+host+port+'/v2/getUserCode',
 					{username:btoa(sendData.user)},
@@ -283,7 +282,11 @@
 								userInfo.MAIN_ID = sendData.user;
 								userInfo.userCode = userCodes[0];
 								enterplorer_login.setInfo(JSON.stringify(userInfo));
+								enterplorer_login.toCrmRun("__ysp_exit()");
 								enterplorer_login.toCrmRun("__ysp_submitForm()");
+								if(hasSessionId){
+									enterplorer_login.goHome();
+								}
 							}else{
 								_alert('获取到的从账号数据为空：'+atob(data.data.userCode));
 							}
