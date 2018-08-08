@@ -98,13 +98,13 @@
 					<use xlink:href="#icon-account"></use>
 				</svg>
 				<!-- value="mt_chengliang"  value="chl_0511"-->
-				<input placeholder="账号" class="account" />
+				<input placeholder="账号" class="account" value="mt_chengliang" />
 			</div>
 			<div class="loginCon">
 				<svg class="icon" aria-hidden="true">
 					<use xlink:href="#icon-eye-off"></use>
 				</svg>
-				<input placeholder="请输入密码" class="password" type="password" />
+				<input placeholder="请输入密码" class="password" type="password" value="chl_0511" />
 			</div>
 			<div id="codeCon">
 				<div style="padding:2rem 0 1rem 2rem;border-bottom: 1px solid #aaa;">
@@ -216,7 +216,7 @@
 			var showLoading = function(text){
 				$('#loading').show();
 			}
-			var host = '218.203.146.211',
+			var host = '218.203.146.209',
 				port = ':8081';
 			var userInfo =  typeof(enterplorer_login)!='undefined' && enterplorer_login.getInfo()?JSON.parse(enterplorer_login.getInfo()):{},
 				sendData = {};
