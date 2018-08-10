@@ -203,6 +203,13 @@
 	</div>
 	<script>
 		window.onload = function(){
+			var getFnName = function(fn,param){
+				if(navigator.userAgent.indexOf('Android')>-1){
+					return '__ysp_' + fn;
+				}else{
+					return 'ysp.bridge.' + fn;
+				}
+			};
 			var _alert = function(text){
 				$(".alert_msg").text(text);
 				$("#alert").show();
@@ -211,14 +218,14 @@
 				$("#alert").hide();
 			});
 			if(typeof(enterplorer_login)=='undefined'){
-				_alert('仅支持在掌上营业厅打开1');
+				_alert('仅支持在掌上营业厅打开');
 			}
 			var showLoading = function(text){
 				$('#loading').show();
 			}
 			var host = '218.203.146.211',
 				port = ':8081';
-			var userInfo =  typeof(enterplorer_login)!='undefined' && enterplorer_login.getInfo()?JSON.parse(enterplorer_login.getInfo()):{},
+			window.userInfo =  typeof(enterplorer_login)!='undefined' && enterplorer_login.getInfo()?JSON.parse(enterplorer_login.getInfo()):{},
 				sendData = {};
 			$(".loginBtn").click(function(){
 				sendData = {user:$('.account').val(),pass:$('.password').val(),clientIP:'192.168.8.103'};
@@ -288,8 +295,8 @@
 								userInfo.passWord = sendData.pass;//存密码，客户端用
 								userInfo.userCode = userCodes[0];//默认登录第一个从账号
 								enterplorer_login.setInfo(JSON.stringify(userInfo));
-								enterplorer_login.toCrmRun("__ysp_exit()");
-								enterplorer_login.toCrmRun("__ysp_submitForm()");
+								enterplorer_login.toCrmRun(getFnName('exit()'));
+								enterplorer_login.toCrmRun(getFnName('submitForm()'));
 								if(!hasSendCode){
 									enterplorer_login.goHome();
 								}
