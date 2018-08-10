@@ -217,18 +217,19 @@
 			$('#sure_btn').click(function(){
 				$("#alert").hide();
 			});
-			if(typeof(enterplorer_login)=='undefined'){
-				_alert('仅支持在掌上营业厅打开');
-			}
 			var showLoading = function(text){
 				$('#loading').show();
 			}
 			var host = '218.203.146.211',
 				port = ':8081';
-			window.userInfo =  typeof(enterplorer_login)!='undefined' && enterplorer_login.getInfo()?JSON.parse(enterplorer_login.getInfo()):{},
-				sendData = {};
 			$(".loginBtn").click(function(){
-				sendData = {user:$('.account').val(),pass:$('.password').val(),clientIP:'192.168.8.103'};
+				if(typeof(enterplorer_login)=='undefined'){
+					_alert('仅支持在掌上营业厅打开');
+				}
+				window.userInfo =  typeof(enterplorer_login)!='undefined' && 
+					enterplorer_login.getInfo()?JSON.parse(enterplorer_login.getInfo()):{};
+				window.sendData = {user:$('.account').val(),pass:$('.password').val(),
+					clientIP:'192.168.8.103'};
 				showLoading();
 				$.post('http://'+host+port+'/v2/Authentication1',
 						sendData,
