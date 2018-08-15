@@ -204,11 +204,11 @@
 	<script>
 		window.onload = function(){
 			var getFnName = function(fn,param){
-				if(navigator.userAgent.indexOf('Android')>-1){
-					return '__ysp_' + fn;
-				}else{
-					return 'ysp.bridge.' + fn;
-				}
+				// if(navigator.userAgent.indexOf('Android')>-1){
+				// 	return '__ysp_' + fn;
+				// }else{
+				// }
+				return 'ysp.bridge.' + fn;
 			};
 			var _alert = function(text){
 				$(".alert_msg").text(text);
