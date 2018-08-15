@@ -204,10 +204,6 @@
 	<script>
 		window.onload = function(){
 			var getFnName = function(fn,param){
-				// if(navigator.userAgent.indexOf('Android')>-1){
-				// 	return '__ysp_' + fn;
-				// }else{
-				// }
 				return 'ysp.bridge.' + fn;
 			};
 			var _alert = function(text){
@@ -247,7 +243,7 @@
 									//goHome只能在MAIN_ID不变且无验证码时直接调用
 									enterplorer_login.goHome();
 								}
-								if(!!data.data.sessionId){//只要发了验证码，那就显示输入框
+								if(!!data.data.sessionId){//只要发了验证码，那就显示验证码输入框
 									$("#code").val('');
 									$("#codeCon").show();
 									sendData.sessionId = data.data.sessionId;
@@ -274,14 +270,6 @@
 							}
 				});
 			});
-			var addToUserCodes = function(userCodes){
-				var _html = [];
-				userCodes.map(function(userCode,i){
-					_html.push('<div onclick="GROUP.jumpHome(this)">'+userCode+"</div>");
-				});
-				$('.sub_accounts').html(_html.join(''));
-				$('#sub_accounts').show();
-			}
 			var getUserCodes = function(hasSendCode){
 				//更换主账号需立即获取第一个从账号去登录
 				showLoading('正在获取从账号');
@@ -292,13 +280,17 @@
 						if(data.status == 1){
 							var userCodes = atob(data.data.userCode).split(',');
 							if(userCodes.length>0 && userCodes[0]!=''){
+								var ucode = userInfo.userCode;
 								userInfo.MAIN_ID = sendData.user;//更新主账号
 								userInfo.passWord = sendData.pass;//存密码，客户端用
 								userInfo.userCode = userCodes[0];//默认登录第一个从账号
 								enterplorer_login.setInfo(JSON.stringify(userInfo));
-								enterplorer_login.toCrmRun(getFnName('exit()'));
-								enterplorer_login.toCrmRun(getFnName('submitForm()'));
-								if(!hasSendCode){
+								if(!ucode){//只有首次登录需要手动提交表单
+									enterplorer_login.toCrmRun(getFnName('submitForm()'));
+								}else{//非首次登录要退出，然后会自动重新登录
+									enterplorer_login.toCrmRun(getFnName('exit("CRM")'));
+								}
+								if(!hasSendCode){//无需发送验证码的账号，直接进入首页
 									enterplorer_login.goHome();
 								}
 							}else{
