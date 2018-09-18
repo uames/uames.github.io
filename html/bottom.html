@@ -58,6 +58,13 @@
     </body>
     <script type="text/javascript">
       var isIOS = /iPhone|mac|iPod|iPad/i.test(navigator.userAgent);
+      function clickBtn(name){ //点击底部栏方法调取
+        var alldiv = document.querySelectorAll("#main>div");
+        for(var i = 0;i<alldiv.length;i++){
+          alldiv[i].style.display = "none";
+        }
+        document.querySelector("#"+name).style.display = "block";
+      }
       window.onload = function(){
         var userInfo = {MAIN_ID:"mt_chengliang",userCode:"y282"};
         if(isIOS){
@@ -193,14 +200,6 @@
           }else{
             window.yspCheckIn.autoUpdate();
           }
-        }
-        
-        function clickBtn(name){ //点击底部栏方法调取
-          var alldiv = document.querySelectorAll("#main>div");
-          for(var i = 0;i<alldiv.length;i++){
-            alldiv[i].style.display = "none";
-          }
-          document.querySelector("#"+name).style.display = "block";
         }
         
         function fileChange(e){ //图片上传
