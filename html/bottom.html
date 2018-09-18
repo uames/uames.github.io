@@ -66,272 +66,274 @@
         document.querySelector("#"+name).style.display = "block";
       }
       window.onload = function(){
-        var userInfo = {MAIN_ID:"mt_chengliang",userCode:"y282"};
-        if(isIOS){
-          userInfo = JSON.parse(yspNXUser.getInfo())
-        }else{
-          userInfo = JSON.parse(yspCheckIn.getTicket())
-        }
-
-          //“我的”页面list遍历
-        document.querySelector("#mainId").innerHTML = "主账号："+userInfo.MAIN_ID;
-        document.querySelector("#userCode").innerHTML = "从账号："+userInfo.userCode;
-        var mylist = [{text:"业务切换",right:"icon"},{text:"修改手势密码",right:"icon"},{text:"清空缓存",right:""},{text:"当前版本",right:"text"},{text:"自动更新",right:"btn"}],
-            myArr = [];
-        for(var i = 0;i<mylist.length;i++){
-          var text = '';
-          if(mylist[i].right == "icon"){
-            text = '<span>〉</span>'
-          }else if(mylist[i].right == "text"){
-            text = '<div class="am2-item-after">' + 
-              (isIOS?window.yspNXUser.nowVersion():window.yspCheckIn.nowVersion()) + '</div>';
-          }else if(mylist[i].right == "btn"){
-            text = '<div class="am2-item-after"><label class="am2-switch"><input type="checkbox" value="on" checked="1"/><span class="am2-switch-label"></span></label></div>'
+        setTimeout(function(){
+          var userInfo = {MAIN_ID:"mt_chengliang",userCode:"y282"};
+          if(isIOS){
+            userInfo = JSON.parse(yspNXUser.getInfo())
+          }else{
+            userInfo = JSON.parse(yspCheckIn.getTicket())
           }
-          myArr.push('<li class="am2-item am2-item-linked" name="'+mylist[i].text+'" style="margin:0 10px;border-top:0"><h3 class="am2-item-title">'+mylist[i].text+'</h3>'+text+'</li>')
-        }
-        document.querySelector("#mylist").innerHTML = myArr.join('')
 
-
-          //“问题反馈”页面list遍历
-        var qlist = ["功能异常","优化建议","安全问题","其他问题"],
-            qArr = [];
-        for(var i = 0;i<qlist.length;i++){
-          qArr.push('<li class="am2-item am2-item-linked" style="margin:0 10px;border-top:0"><label class="am2-switch am2-select-item-switch" style="margin:0 10px"><input type="checkbox"/><span class="am2-switch-radio"></span></label><h3 class="am2-item-title">'+qlist[i]+'</h3></li>')
-        }
-        document.querySelector("#qlist").innerHTML = qArr.join('')
-
-        //“足迹”页面list遍历
-        saveintroduce(201808,userInfo.MAIN_ID,userInfo.userCode,"");
-        var flist = ["入网开户","商品订购","缴费充值","缴费回退","业务回退","主商品变更","个人密码修改","密码重置","营销活动","申请停开机","补卡","国际呼叫","账单查询","订购产品查询","日志查询","客户资料查询","套餐余额查询","客户标签","家庭网业务"],
-              fArr = [];
-        for(var i = 0;i<flist.length;i++){
-          fArr.push('<button class="am2-btn am2-btn-xs am2-col am2-btn-hollow" style="margin:10px 10px 0 0">'+flist[i]+'</button>')
-        }
-        document.querySelector("#business").innerHTML = fArr.join('');
-        var btnAll = document.querySelectorAll("#business button");//点击上面的按钮
-        for (var i = 0; i < btnAll.length; i++) {
-          btnAll[i].onclick = function(e){
-            for(var j = 0;j<btnAll.length;j++){
-              btnAll[j].className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
-          }
-            this.className="am2-btn am2-btn-xs am2-col am2-btn-hollow am2-btn-primary";
-            saveintroduce(document.querySelector("#chooseTime input[type='month']").value.replace("-",""),userInfo.MAIN_ID,userInfo.userCode,this.textContent);
-          }
-        }
-        
-        //事件触发
-        var chooseTab = document.querySelectorAll("#chooseTab button");
-        for(var i = 0;i<chooseTab.length;i++){//足迹Tab点击
-          chooseTab[i].onclick = function(e){
-            var thisName = document.querySelector("#"+this.name);
-            if(thisName.style.display == "block"){
-              this.className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
-              thisName.style.display = "none";
-            }else{
-              document.querySelectorAll("#chooseTab button")[0].className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
-              document.querySelectorAll("#chooseTab button")[1].className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
-              document.querySelector("#business").style.display = "none";
-              document.querySelector("#chooseTime").style.display = "none";
-              this.className = "am2-btn am2-btn-xs am2-col am2-btn-hollow am2-btn-primary";
-              thisName.style.display = "block";
+            //“我的”页面list遍历
+          document.querySelector("#mainId").innerHTML = "主账号："+userInfo.MAIN_ID;
+          document.querySelector("#userCode").innerHTML = "从账号："+userInfo.userCode;
+          var mylist = [{text:"业务切换",right:"icon"},{text:"修改手势密码",right:"icon"},{text:"清空缓存",right:""},{text:"当前版本",right:"text"},{text:"自动更新",right:"btn"}],
+              myArr = [];
+          for(var i = 0;i<mylist.length;i++){
+            var text = '';
+            if(mylist[i].right == "icon"){
+              text = '<span>〉</span>'
+            }else if(mylist[i].right == "text"){
+              text = '<div class="am2-item-after">' + 
+                (isIOS?window.yspNXUser.nowVersion():window.yspCheckIn.nowVersion()) + '</div>';
+            }else if(mylist[i].right == "btn"){
+              text = '<div class="am2-item-after"><label class="am2-switch"><input type="checkbox" value="on" checked="1"/><span class="am2-switch-label"></span></label></div>'
             }
+            myArr.push('<li class="am2-item am2-item-linked" name="'+mylist[i].text+'" style="margin:0 10px;border-top:0"><h3 class="am2-item-title">'+mylist[i].text+'</h3>'+text+'</li>')
           }
-        }
-        
-        document.querySelector("#inputMonth").onclick = function(e){//足迹时间段选择chooseTime
-          var chooseName="";
+          document.querySelector("#mylist").innerHTML = myArr.join('')
+
+
+            //“问题反馈”页面list遍历
+          var qlist = ["功能异常","优化建议","安全问题","其他问题"],
+              qArr = [];
+          for(var i = 0;i<qlist.length;i++){
+            qArr.push('<li class="am2-item am2-item-linked" style="margin:0 10px;border-top:0"><label class="am2-switch am2-select-item-switch" style="margin:0 10px"><input type="checkbox"/><span class="am2-switch-radio"></span></label><h3 class="am2-item-title">'+qlist[i]+'</h3></li>')
+          }
+          document.querySelector("#qlist").innerHTML = qArr.join('')
+
+          //“足迹”页面list遍历
+          saveintroduce(201808,userInfo.MAIN_ID,userInfo.userCode,"");
+          var flist = ["入网开户","商品订购","缴费充值","缴费回退","业务回退","主商品变更","个人密码修改","密码重置","营销活动","申请停开机","补卡","国际呼叫","账单查询","订购产品查询","日志查询","客户资料查询","套餐余额查询","客户标签","家庭网业务"],
+                fArr = [];
+          for(var i = 0;i<flist.length;i++){
+            fArr.push('<button class="am2-btn am2-btn-xs am2-col am2-btn-hollow" style="margin:10px 10px 0 0">'+flist[i]+'</button>')
+          }
+          document.querySelector("#business").innerHTML = fArr.join('');
+          var btnAll = document.querySelectorAll("#business button");//点击上面的按钮
           for (var i = 0; i < btnAll.length; i++) {
-            if(btnAll[i].className.indexOf("primary")>-1){
-              chooseName = btnAll[i].textContent;
+            btnAll[i].onclick = function(e){
+              for(var j = 0;j<btnAll.length;j++){
+                btnAll[j].className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
             }
-        }
-          saveintroduce(this.previousElementSibling.value.replace("-",""),userInfo.MAIN_ID,userInfo.userCode,chooseName);
-        }
-        
-        var ali = document.querySelectorAll("#qlist li");
-        for(var i = 0;i<ali.length;i++){//点击问题反馈checkbox
-          ali[i].onclick = function(e){
-            if(this.querySelector("input").checked){
-              this.querySelector("input").checked = "";
-            }else{
-              this.querySelector("input").checked= true;
+              this.className="am2-btn am2-btn-xs am2-col am2-btn-hollow am2-btn-primary";
+              saveintroduce(document.querySelector("#chooseTime input[type='month']").value.replace("-",""),userInfo.MAIN_ID,userInfo.userCode,this.textContent);
             }
           }
-        }
-        var textValueLength = 0;
-        document.querySelector(".textareaDiv textarea").onchange = function(e){//问题反馈输入框
-          textValueLength = this.value.length;
-          this.nextElementSibling.textContent = textValueLength+'/240'
-        }
-        
-        function loginOut(){//点击安全退出
-          if(isIOS){
-            window.yspNXUser.loginOut();
-          }else{
-            window.yspCheckIn.loginOut();
-          }
-        }
-
-        document.querySelector("#mylist li[name='业务切换']").onclick = function(e){//点击业务切换
-          if(isIOS){
-            window.yspNXUser.changeOperation();
-          }else{
-            window.yspCheckIn.changeOperation();
-          }
-        }
-        document.querySelector("#mylist li[name='修改手势密码']").onclick = function(e){//点击修改手势密码
-          if(isIOS){
-            window.yspNXUser.changePassword();
-          }else{
-            window.yspCheckIn.changePassword();
-          }
-        }
-        document.querySelector("#mylist li[name='清空缓存']").onclick = function(e){//点击清空缓存
-          if(isIOS){
-            window.yspNXUser.clearCache();
-          }else{
-            window.yspCheckIn.clearCache();
-          }
-        }
-        document.querySelector("#mylist li[name='自动更新']").onclick = function(e){//点击自动更新
-          if(isIOS){
-            window.yspNXUser.autoUpdate();
-          }else{
-            window.yspCheckIn.autoUpdate();
-          }
-        }
-        
-        function fileChange(e){ //图片上传
-          if (window.FileReader) {
-        var filereader = new FileReader();
-        filereader.onload = function (event) {
-          var srcpath = event.target.result;
-          e.parentElement.style.backgroundImage = "url("+srcpath+")";
-          var str=document.createElement("li");
-          str.innerHTML = '<input type="file" accept="image/*" onchange="fileChange(this)"/>';
-
-          var picLi = document.querySelectorAll(".uploadPic li");
-          if(picLi.length < 3){
-            document.querySelector(".uploadPic ul").appendChild(str);
-          }
-        };
-        filereader.readAsDataURL(e.files[0]);
-      } else {
-        e.parentElement.style.backgroundImage = "url("+e.value+")";
-      }
-        }
-
-        function submitFrom(){//问题反馈 提交
-          var types = [];
-          for(var i = 0;i<ali.length;i++){
-            if(ali[i].querySelector("input[type='checkbox']").checked){
-              types.push(ali[i].textContent)
-            }else{
-              types.push("");
-            }
-          }
-          var contents = document.querySelector("#contents").value;
-
-          var picLi = document.querySelectorAll(".uploadPic input"),
-          imgnum = 0,img = "";
-          for(var i = 0;i<picLi.length;i++){
-            if(picLi[i].files.length>0){
-              img += "&image"+(i+1)+"="+picLi[i].files;
-              imgnum++
-            }
-          }
-
-          if(!!!types.join('')){
-            alert("请选择问题类型");
-            return false;
-          }else if(!contents){
-            alert("请输入补充问题和意见");
-            return false;
-          }
-
-          var ajax = false;
-          //开始初始化XMLHttpRequest对象
-          //Mozilla 浏览器&&设置MiME类别
-          if(window.XMLHttpRequest){ 
-            ajax = new XMLHttpRequest();if(ajax.overrideMimeType){ajax.overrideMimeType("text/xml");}
-          }
-          if (!ajax){alert("不能创建XMLHttpRequest对象实例.");return false;}// 异常，创建对象实例失败
-          ajax.open("POST", "http://218.203.146.209:8000/v2/suggesstion", true);//通过Post方式打开连接
-          ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");//定义传输的文件HTTP头信息
-          ajax.send("types[0]="+types[0]+"&types[1]="+types[1]+"&types[2]="+types[2]+"&types[3]="+types[3]+"&user4a="+userInfo.MAIN_ID+"&contents="+contents+"&imgnum='"+imgnum+"'"+img);//发送POST数据
-          ajax.onreadystatechange = function(){//获取执行状态
-            //如果执行状态成功，那么就把返回信息写到指定的层里
-            if (ajax.readyState == 4 && ajax.status == 200){
-            var dat = JSON.parse(ajax.responseText)
-              console.log(dat);
-              if(dat.status == 1){
-                alert("提交成功")
+          
+          //事件触发
+          var chooseTab = document.querySelectorAll("#chooseTab button");
+          for(var i = 0;i<chooseTab.length;i++){//足迹Tab点击
+            chooseTab[i].onclick = function(e){
+              var thisName = document.querySelector("#"+this.name);
+              if(thisName.style.display == "block"){
+                this.className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
+                thisName.style.display = "none";
               }else{
-                alert(dat.message)
+                document.querySelectorAll("#chooseTab button")[0].className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
+                document.querySelectorAll("#chooseTab button")[1].className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
+                document.querySelector("#business").style.display = "none";
+                document.querySelector("#chooseTime").style.display = "none";
+                this.className = "am2-btn am2-btn-xs am2-col am2-btn-hollow am2-btn-primary";
+                thisName.style.display = "block";
               }
             }
           }
-        }
-
-        function saveintroduce(datetime,user4a,follow,chooseName){ //查询log
-          var ajax = false;
-          //开始初始化XMLHttpRequest对象
-          //Mozilla 浏览器&&设置MiME类别
-          if(window.XMLHttpRequest){ 
-            ajax = new XMLHttpRequest();if(ajax.overrideMimeType){ajax.overrideMimeType("text/xml");}
+          
+          document.querySelector("#inputMonth").onclick = function(e){//足迹时间段选择chooseTime
+            var chooseName="";
+            for (var i = 0; i < btnAll.length; i++) {
+              if(btnAll[i].className.indexOf("primary")>-1){
+                chooseName = btnAll[i].textContent;
+              }
           }
-          if (!ajax){alert("不能创建XMLHttpRequest对象实例.");return false;}// 异常，创建对象实例失败
-          ajax.open("POST", "http://218.203.146.211:8081/v2/checkLog", true);//通过Post方式打开连接
-          ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");//定义传输的文件HTTP头信息
-          ajax.send("dbList[0]="+datetime+"&user4a="+userInfo.MAIN_ID+"&follow="+follow+"&system=CRM");//发送POST数据
-          ajax.onreadystatechange = function(){//获取执行状态
-            //如果执行状态成功，那么就把返回信息写到指定的层里
-            if (ajax.readyState == 4 && ajax.status == 200){
-            var dat = JSON.parse(ajax.responseText)
-              console.log(dat);
-              var fArr = [];
-              if(dat.data.length>0){
-                for(var i = 0;i<dat.data.length;i++){
-                  if(dat.data[i].doing.length>0){
-                    for(var j = 0;j<dat.data[i].doing.length;j++){
-                      var text = '<li class="am2-item am2-item-content t-bgwhite" style="padding:10px 15px;marginBottom:5px"><div class="am2-item-main"><div class="am2-item-title-row"><h3 class="am2-item-title">'+dat.data[i].doing[j].doingContent+'</h3><div class="am2-item-after" style="fontSize:12px">'+formatDateTime(Number(dat.data[i].doing[j].doingTime))+'</div></div><div class="am2-item-desc" style="fontSize:12px">机型：'+dat.data[i].device+'</div><div class="am2-item-desc" style="fontSize:12px">用户：'+dat.data[i].user4a+'@@'+dat.data[i].follow+'</div></div></li>';
+            saveintroduce(this.previousElementSibling.value.replace("-",""),userInfo.MAIN_ID,userInfo.userCode,chooseName);
+          }
+          
+          var ali = document.querySelectorAll("#qlist li");
+          for(var i = 0;i<ali.length;i++){//点击问题反馈checkbox
+            ali[i].onclick = function(e){
+              if(this.querySelector("input").checked){
+                this.querySelector("input").checked = "";
+              }else{
+                this.querySelector("input").checked= true;
+              }
+            }
+          }
+          var textValueLength = 0;
+          document.querySelector(".textareaDiv textarea").onchange = function(e){//问题反馈输入框
+            textValueLength = this.value.length;
+            this.nextElementSibling.textContent = textValueLength+'/240'
+          }
+          
+          function loginOut(){//点击安全退出
+            if(isIOS){
+              window.yspNXUser.loginOut();
+            }else{
+              window.yspCheckIn.loginOut();
+            }
+          }
 
-                      if(!!chooseName){
-                        if(chooseName == dat.data[i].doing[j].doingContent){
+          document.querySelector("#mylist li[name='业务切换']").onclick = function(e){//点击业务切换
+            if(isIOS){
+              window.yspNXUser.changeOperation();
+            }else{
+              window.yspCheckIn.changeOperation();
+            }
+          }
+          document.querySelector("#mylist li[name='修改手势密码']").onclick = function(e){//点击修改手势密码
+            if(isIOS){
+              window.yspNXUser.changePassword();
+            }else{
+              window.yspCheckIn.changePassword();
+            }
+          }
+          document.querySelector("#mylist li[name='清空缓存']").onclick = function(e){//点击清空缓存
+            if(isIOS){
+              window.yspNXUser.clearCache();
+            }else{
+              window.yspCheckIn.clearCache();
+            }
+          }
+          document.querySelector("#mylist li[name='自动更新']").onclick = function(e){//点击自动更新
+            if(isIOS){
+              window.yspNXUser.autoUpdate();
+            }else{
+              window.yspCheckIn.autoUpdate();
+            }
+          }
+          
+          function fileChange(e){ //图片上传
+            if (window.FileReader) {
+          var filereader = new FileReader();
+          filereader.onload = function (event) {
+            var srcpath = event.target.result;
+            e.parentElement.style.backgroundImage = "url("+srcpath+")";
+            var str=document.createElement("li");
+            str.innerHTML = '<input type="file" accept="image/*" onchange="fileChange(this)"/>';
+
+            var picLi = document.querySelectorAll(".uploadPic li");
+            if(picLi.length < 3){
+              document.querySelector(".uploadPic ul").appendChild(str);
+            }
+          };
+          filereader.readAsDataURL(e.files[0]);
+        } else {
+          e.parentElement.style.backgroundImage = "url("+e.value+")";
+        }
+          }
+
+          function submitFrom(){//问题反馈 提交
+            var types = [];
+            for(var i = 0;i<ali.length;i++){
+              if(ali[i].querySelector("input[type='checkbox']").checked){
+                types.push(ali[i].textContent)
+              }else{
+                types.push("");
+              }
+            }
+            var contents = document.querySelector("#contents").value;
+
+            var picLi = document.querySelectorAll(".uploadPic input"),
+            imgnum = 0,img = "";
+            for(var i = 0;i<picLi.length;i++){
+              if(picLi[i].files.length>0){
+                img += "&image"+(i+1)+"="+picLi[i].files;
+                imgnum++
+              }
+            }
+
+            if(!!!types.join('')){
+              alert("请选择问题类型");
+              return false;
+            }else if(!contents){
+              alert("请输入补充问题和意见");
+              return false;
+            }
+
+            var ajax = false;
+            //开始初始化XMLHttpRequest对象
+            //Mozilla 浏览器&&设置MiME类别
+            if(window.XMLHttpRequest){ 
+              ajax = new XMLHttpRequest();if(ajax.overrideMimeType){ajax.overrideMimeType("text/xml");}
+            }
+            if (!ajax){alert("不能创建XMLHttpRequest对象实例.");return false;}// 异常，创建对象实例失败
+            ajax.open("POST", "http://218.203.146.209:8000/v2/suggesstion", true);//通过Post方式打开连接
+            ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");//定义传输的文件HTTP头信息
+            ajax.send("types[0]="+types[0]+"&types[1]="+types[1]+"&types[2]="+types[2]+"&types[3]="+types[3]+"&user4a="+userInfo.MAIN_ID+"&contents="+contents+"&imgnum='"+imgnum+"'"+img);//发送POST数据
+            ajax.onreadystatechange = function(){//获取执行状态
+              //如果执行状态成功，那么就把返回信息写到指定的层里
+              if (ajax.readyState == 4 && ajax.status == 200){
+              var dat = JSON.parse(ajax.responseText)
+                console.log(dat);
+                if(dat.status == 1){
+                  alert("提交成功")
+                }else{
+                  alert(dat.message)
+                }
+              }
+            }
+          }
+
+          function saveintroduce(datetime,user4a,follow,chooseName){ //查询log
+            var ajax = false;
+            //开始初始化XMLHttpRequest对象
+            //Mozilla 浏览器&&设置MiME类别
+            if(window.XMLHttpRequest){ 
+              ajax = new XMLHttpRequest();if(ajax.overrideMimeType){ajax.overrideMimeType("text/xml");}
+            }
+            if (!ajax){alert("不能创建XMLHttpRequest对象实例.");return false;}// 异常，创建对象实例失败
+            ajax.open("POST", "http://218.203.146.211:8081/v2/checkLog", true);//通过Post方式打开连接
+            ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");//定义传输的文件HTTP头信息
+            ajax.send("dbList[0]="+datetime+"&user4a="+userInfo.MAIN_ID+"&follow="+follow+"&system=CRM");//发送POST数据
+            ajax.onreadystatechange = function(){//获取执行状态
+              //如果执行状态成功，那么就把返回信息写到指定的层里
+              if (ajax.readyState == 4 && ajax.status == 200){
+              var dat = JSON.parse(ajax.responseText)
+                console.log(dat);
+                var fArr = [];
+                if(dat.data.length>0){
+                  for(var i = 0;i<dat.data.length;i++){
+                    if(dat.data[i].doing.length>0){
+                      for(var j = 0;j<dat.data[i].doing.length;j++){
+                        var text = '<li class="am2-item am2-item-content t-bgwhite" style="padding:10px 15px;marginBottom:5px"><div class="am2-item-main"><div class="am2-item-title-row"><h3 class="am2-item-title">'+dat.data[i].doing[j].doingContent+'</h3><div class="am2-item-after" style="fontSize:12px">'+formatDateTime(Number(dat.data[i].doing[j].doingTime))+'</div></div><div class="am2-item-desc" style="fontSize:12px">机型：'+dat.data[i].device+'</div><div class="am2-item-desc" style="fontSize:12px">用户：'+dat.data[i].user4a+'@@'+dat.data[i].follow+'</div></div></li>';
+
+                        if(!!chooseName){
+                          if(chooseName == dat.data[i].doing[j].doingContent){
+                            fArr.push(text)
+                          }
+                      }else{
                           fArr.push(text)
-                        }
-                    }else{
-                        fArr.push(text)
-                    }
+                      }
+                      }
                     }
                   }
+                }else{
+                  fArr.push('<li class="t-cen">无当月数据</li>')
                 }
-              }else{
-                fArr.push('<li class="t-cen">无当月数据</li>')
+                document.querySelector("#flist").innerHTML = fArr.join('');
+              }else if(ajax.status == 504){
+                document.querySelector("#flist").innerHTML = '<li class="t-cen">网络失败，请重新选择时间段</li>';
               }
-              document.querySelector("#flist").innerHTML = fArr.join('');
-            }else if(ajax.status == 504){
-              document.querySelector("#flist").innerHTML = '<li class="t-cen">网络失败，请重新选择时间段</li>';
             }
           }
-        }
-        
-        function formatDateTime(inputTime) {  //时间戳转时间
-            var date = new Date(inputTime);
-            var y = date.getFullYear();  
-            var m = date.getMonth() + 1;  
-            m = m < 10 ? ('0' + m) : m;  
-            var d = date.getDate();  
-            d = d < 10 ? ('0' + d) : d;  
-            var h = date.getHours();
-            h = h < 10 ? ('0' + h) : h;
-            var minute = date.getMinutes();
-            var second = date.getSeconds();
-            minute = minute < 10 ? ('0' + minute) : minute;  
-            second = second < 10 ? ('0' + second) : second; 
-            return y + '/' + m + '/' + d+' '+h+':'+minute+':'+second;  
-        };
+          
+          function formatDateTime(inputTime) {  //时间戳转时间
+              var date = new Date(inputTime);
+              var y = date.getFullYear();  
+              var m = date.getMonth() + 1;  
+              m = m < 10 ? ('0' + m) : m;  
+              var d = date.getDate();  
+              d = d < 10 ? ('0' + d) : d;  
+              var h = date.getHours();
+              h = h < 10 ? ('0' + h) : h;
+              var minute = date.getMinutes();
+              var second = date.getSeconds();
+              minute = minute < 10 ? ('0' + minute) : minute;  
+              second = second < 10 ? ('0' + second) : second; 
+              return y + '/' + m + '/' + d+' '+h+':'+minute+':'+second;  
+          };
+        },2000);
       }
     </script>
 </html>
