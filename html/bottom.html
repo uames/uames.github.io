@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+    <head>
+        <title>底部栏</title>
+    </head>
+	<link rel="stylesheet" type="text/css" href="https://sandbox.runjs.cn/uploads/rs/11/tguh3oqf/amazeui.touch.min.css">
+	<script type="text/javascript" src="https://sandbox.runjs.cn/uploads/rs/11/tguh3oqf/amazeui.touch.min.js"></script>
+    <style type="text/css">
+      *{padding:0;margin:0;}
+      body,html{background:#f5f5f5;}
+      li{list-style:none;}
+      .t-red{color:#f00}
+      .t-mg0{margin:0!important;}
+      .t-pd0{padding:0;}
+      .t-pd015{padding:0 15px;}
+      .t-fz12{font-size:12px;}
+      .t-relative{position:relative;}
+      .t-bgwhite{background:#fff}
+      .t-height{height:60px;}
+      .t-cen{text-align:center;height:45px;line-height:45px;}
+
+      .textareaDiv textarea{font-size:14px;border:0;}
+      .textareaDiv p{text-align:right;margin:5px;}
+
+      .uploadPic ul{padding:0 10px;}
+      .uploadPic li{width:80px;height:80px;border:1px solid #e1e1e1;margin:10px;float:left;background-repeat:no-repeat;background-size:100%;background-position:center;background-image: url('data:image/png;base64,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');}
+      .uploadPic li input{width:80px;height:80px;opacity:0;}
+    </style>
+    <body>
+        <div id="main">
+	        <div id="footDiv" style="display:none"><header class="t-cen t-bgwhite" style="border-bottom:1px solid #e1e1e1;color:#218bf5">足迹</header><div class="t-bgwhite t-relative"><div class="am2-g" id="chooseTab"><button class="am2-btn am2-btn-xs am2-col am2-btn-hollow" style="margin:10px 5px" name="chooseTime">时间段</button><button class="am2-btn am2-btn-xs am2-col am2-btn-hollow" style="margin:10px 5px" name="business">业务类型</button></div><div class="am2-field-single am2-field-underline-part t-mg0" style="width:100%;padding-left:10px;display:none" id="chooseTime"><div class="am2-item" style="border:0;padding:0;padding-right:10px"><input type="month" value="2018-08" style="width:70%;padding:0"/><button class="am2-btn am2-btn-xs t-mg0" id="inputMonth">查询</button></div></div><div class="am2-g am2-g-avg- t-bgwhite" style="padding:0 0 10px 10px;display:none" id="business"></div></div><ul class="t-pd0" id="flist"></ul><div class="t-height"></div></div>
+	      
+	        <div id="qustionDiv" style="display:none">
+        		<header class="t-cen t-bgwhite" style="border-bottom:1px solid #e1e1e1;color:#218bf5">问题收集</header>
+	        	<small class="t-pd015" style="line-height:35px">请选择故障问题类型(必选)</small>
+	        	<ul class="t-bgwhite t-mg0 t-pd0" id="qlist"></ul>
+	        	<small class="t-pd015" style="line-height:35px">请补充详细问题和意见</small>
+	        	<div class="t-bgwhite textareaDiv">
+		        	<textarea placeholder="请输入不少于10个字的描述" maxLength="240" id="contents"></textarea>
+		        	<p>0/240</p>
+	        	</div>
+	        	<small class="t-pd015" style="line-height:35px">请提供相关的截图或照片</small>
+	        	<div class="t-bgwhite uploadPic">
+		        	<ul class="t-mg0">
+		        		<li><input type="file" name="image1" id = "image1" accept="image/*" onchange="fileChange(this)"/></li>
+		        	</ul>
+		        	<div style="clear:both;color:#999" class="t-fz12 t-pd015">仅支持最多3张标准图片格式上传，且图片大小不超过1M</div>
+	        	</div>
+	        	<div class="t-pd015" style="margin:20px 0">
+		        	<button onclick="submitFrom()" class="am2-btn am2-btn-primary am2-btn-block">提交</button>
+		        </div>
+        		<div class="t-height"></div>
+        	</div>
+
+	        <div id="myDiv" style="display:none"><header class="t-cen t-bgwhite" style="border-bottom:1px solid #e1e1e1;color:#218bf5;">我的</header><ul class="t-mg0 t-fz12 t-bgwhite" style="padding:15px"><li id="mainId"></li><li id="userCode"></li></ul><div style="margin-top:15px"><ul class="t-bgwhite" style="padding:0" id="mylist"></ul><div class="t-height"></div><header class="t-cen t-bgwhite" style="color:red" id="loginOut" onclick="loginOut()">安全退出</header></div></div>
+        </div>
+    </body>
+    <script type="text/javascript">
+      var userInfo = {MAIN_ID:"mt_chengliang",userCode:"y282"};
+      // if(ysp.appMain.isIOS()){
+      //   userInfo = ysp.bridge.getInfo()
+      // }else{
+      //   userInfo = JSON.parse(yspCheckIn.getTicket())
+      // }
+
+        //“我的”页面list遍历
+       document.querySelector("#mainId").innerHTML = "主账号："+userInfo.MAIN_ID;
+       document.querySelector("#userCode").innerHTML = "从账号："+userInfo.userCode;
+      var mylist = [{text:"业务切换",right:"icon"},{text:"修改手势密码",right:"icon"},{text:"清空缓存",right:""},{text:"当前版本",right:"text"},{text:"自动更新",right:"btn"}],
+          myArr = [];
+      for(var i = 0;i<mylist.length;i++){
+        var text = '';
+        if(mylist[i].right == "icon"){
+          text = '<span>〉</span>'
+        }else if(mylist[i].right == "text"){
+          text = '<div class="am2-item-after">6.7.0</div>'
+          //'+(ysp.appMain.isIOS()?window.yspUser.nowVersion():window.yspCheckIn.nowVersion())+'
+        }else if(mylist[i].right == "btn"){
+          text = '<div class="am2-item-after"><label class="am2-switch"><input type="checkbox" value="on" checked="1"/><span class="am2-switch-label"></span></label></div>'
+        }
+        myArr.push('<li class="am2-item am2-item-linked" name="'+mylist[i].text+'" style="margin:0 10px;border-top:0"><h3 class="am2-item-title">'+mylist[i].text+'</h3>'+text+'</li>')
+      }
+      document.querySelector("#mylist").innerHTML = myArr.join('')
+
+
+        //“问题反馈”页面list遍历
+      var qlist = ["功能异常","优化建议","安全问题","其他问题"],
+          qArr = [];
+      for(var i = 0;i<qlist.length;i++){
+        qArr.push('<li class="am2-item am2-item-linked" style="margin:0 10px;border-top:0"><label class="am2-switch am2-select-item-switch" style="margin:0 10px"><input type="checkbox"/><span class="am2-switch-radio"></span></label><h3 class="am2-item-title">'+qlist[i]+'</h3></li>')
+      }
+      document.querySelector("#qlist").innerHTML = qArr.join('')
+
+      //“足迹”页面list遍历
+      saveintroduce(201808,userInfo.MAIN_ID,userInfo.userCode,"");
+      var flist = ["入网开户","商品订购","缴费充值","缴费回退","业务回退","主商品变更","个人密码修改","密码重置","营销活动","申请停开机","补卡","国际呼叫","账单查询","订购产品查询","日志查询","客户资料查询","套餐余额查询","客户标签","家庭网业务"],
+            fArr = [];
+      for(var i = 0;i<flist.length;i++){
+        fArr.push('<button class="am2-btn am2-btn-xs am2-col am2-btn-hollow" style="margin:10px 10px 0 0">'+flist[i]+'</button>')
+      }
+      document.querySelector("#business").innerHTML = fArr.join('');
+      var btnAll = document.querySelectorAll("#business button");//点击上面的按钮
+      for (var i = 0; i < btnAll.length; i++) {
+      	btnAll[i].onclick = function(e){
+      		for(var j = 0;j<btnAll.length;j++){
+		        btnAll[j].className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
+	    	}
+      		this.className="am2-btn am2-btn-xs am2-col am2-btn-hollow am2-btn-primary";
+	        saveintroduce(document.querySelector("#chooseTime input[type='month']").value.replace("-",""),userInfo.MAIN_ID,userInfo.userCode,this.textContent);
+      	}
+      }
+      
+      //事件触发
+      var chooseTab = document.querySelectorAll("#chooseTab button");
+      for(var i = 0;i<chooseTab.length;i++){//足迹Tab点击
+        chooseTab[i].onclick = function(e){
+          var thisName = document.querySelector("#"+this.name);
+          if(thisName.style.display == "block"){
+            this.className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
+            thisName.style.display = "none";
+          }else{
+            document.querySelectorAll("#chooseTab button")[0].className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
+            document.querySelectorAll("#chooseTab button")[1].className = "am2-btn am2-btn-xs am2-col am2-btn-hollow";
+            document.querySelector("#business").style.display = "none";
+            document.querySelector("#chooseTime").style.display = "none";
+            this.className = "am2-btn am2-btn-xs am2-col am2-btn-hollow am2-btn-primary";
+            thisName.style.display = "block";
+          }
+        }
+      }
+      
+      document.querySelector("#inputMonth").onclick = function(e){//足迹时间段选择chooseTime
+      	var chooseName="";
+      	for (var i = 0; i < btnAll.length; i++) {
+	      	if(btnAll[i].className.indexOf("primary")>-1){
+	      		chooseName = btnAll[i].textContent;
+	      	}
+	    }
+        saveintroduce(this.previousElementSibling.value.replace("-",""),userInfo.MAIN_ID,userInfo.userCode,chooseName);
+      }
+      
+      var ali = document.querySelectorAll("#qlist li");
+      for(var i = 0;i<ali.length;i++){//点击问题反馈checkbox
+        ali[i].onclick = function(e){
+          if(this.querySelector("input").checked){
+            this.querySelector("input").checked = "";
+          }else{
+            this.querySelector("input").checked= true;
+          }
+        }
+      }
+      var textValueLength = 0;
+      document.querySelector(".textareaDiv textarea").onchange = function(e){//问题反馈输入框
+        textValueLength = this.value.length;
+        this.nextElementSibling.textContent = textValueLength+'/240'
+      }
+      
+      function loginOut(){//点击安全退出
+      	if(ysp.appMain.isIOS()){
+          window.yspUser.loginOut();
+        }else{
+          window.yspCheckIn.loginOut();
+        }
+      }
+
+      document.querySelector("#mylist li[name='业务切换']").onclick = function(e){//点击业务切换
+        if(ysp.appMain.isIOS()){
+          window.yspUser.changeOperation();
+        }else{
+          window.yspCheckIn.changeOperation();
+        }
+      }
+      document.querySelector("#mylist li[name='修改手势密码']").onclick = function(e){//点击修改手势密码
+        if(ysp.appMain.isIOS()){
+          window.yspUser.changePassword();
+        }else{
+          window.yspCheckIn.changePassword();
+        }
+      }
+      document.querySelector("#mylist li[name='清空缓存']").onclick = function(e){//点击清空缓存
+        if(ysp.appMain.isIOS()){
+          window.yspUser.clearCache();
+        }else{
+          window.yspCheckIn.clearCache();
+        }
+      }
+      document.querySelector("#mylist li[name='自动更新']").onclick = function(e){//点击自动更新
+        if(ysp.appMain.isIOS()){
+          window.yspUser.autoUpdate();
+        }else{
+          window.yspCheckIn.autoUpdate();
+        }
+      }
+      
+      function clickBtn(name){ //点击底部栏方法调取
+      	var alldiv = document.querySelectorAll("#main>div");
+      	for(var i = 0;i<alldiv.length;i++){
+      		alldiv[i].style.display = "none";
+      	}
+        document.querySelector("#"+name).style.display = "block";
+      }
+      
+      function fileChange(e){ //图片上传
+      	if (window.FileReader) {
+		 	var filereader = new FileReader();
+		 	filereader.onload = function (event) {
+				var srcpath = event.target.result;
+				e.parentElement.style.backgroundImage = "url("+srcpath+")";
+				var str=document.createElement("li");
+				str.innerHTML = '<input type="file" accept="image/*" onchange="fileChange(this)"/>';
+
+				var picLi = document.querySelectorAll(".uploadPic li");
+				if(picLi.length < 3){
+					document.querySelector(".uploadPic ul").appendChild(str);
+				}
+			 };
+		 	filereader.readAsDataURL(e.files[0]);
+		 } else {
+			e.parentElement.style.backgroundImage = "url("+e.value+")";
+		 }
+      }
+
+      function submitFrom(){//问题反馈 提交
+      	var types = [];
+      	for(var i = 0;i<ali.length;i++){
+      		if(ali[i].querySelector("input[type='checkbox']").checked){
+      			types.push(ali[i].textContent)
+      		}else{
+      			types.push("");
+      		}
+      	}
+      	var contents = document.querySelector("#contents").value;
+
+      	var picLi = document.querySelectorAll(".uploadPic input"),
+      	imgnum = 0,img = "";
+      	for(var i = 0;i<picLi.length;i++){
+      		if(picLi[i].files.length>0){
+      			img += "&image"+(i+1)+"="+picLi[i].files;
+      			imgnum++
+      		}
+      	}
+
+      	if(!!!types.join('')){
+      		alert("请选择问题类型");
+      		return false;
+      	}else if(!contents){
+      		alert("请输入补充问题和意见");
+      		return false;
+      	}
+
+      	var ajax = false;
+        //开始初始化XMLHttpRequest对象
+        //Mozilla 浏览器&&设置MiME类别
+        if(window.XMLHttpRequest){ 
+          ajax = new XMLHttpRequest();if(ajax.overrideMimeType){ajax.overrideMimeType("text/xml");}
+        }
+        if (!ajax){alert("不能创建XMLHttpRequest对象实例.");return false;}// 异常，创建对象实例失败
+        ajax.open("POST", "http://218.203.146.209:8000/v2/suggesstion", true);//通过Post方式打开连接
+        ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");//定义传输的文件HTTP头信息
+        ajax.send("types[0]="+types[0]+"&types[1]="+types[1]+"&types[2]="+types[2]+"&types[3]="+types[3]+"&user4a="+userInfo.MAIN_ID+"&contents="+contents+"&imgnum='"+imgnum+"'"+img);//发送POST数据
+        ajax.onreadystatechange = function(){//获取执行状态
+          //如果执行状态成功，那么就把返回信息写到指定的层里
+          if (ajax.readyState == 4 && ajax.status == 200){
+           var dat = JSON.parse(ajax.responseText)
+            console.log(dat);
+            if(dat.status == 1){
+            	alert("提交成功")
+            }else{
+            	alert(dat.message)
+            }
+          }
+        }
+      }
+
+      function saveintroduce(datetime,user4a,follow,chooseName){ //查询log
+        var ajax = false;
+        //开始初始化XMLHttpRequest对象
+        //Mozilla 浏览器&&设置MiME类别
+        if(window.XMLHttpRequest){ 
+          ajax = new XMLHttpRequest();if(ajax.overrideMimeType){ajax.overrideMimeType("text/xml");}
+        }
+        if (!ajax){alert("不能创建XMLHttpRequest对象实例.");return false;}// 异常，创建对象实例失败
+        ajax.open("POST", "http://218.203.146.211:8081/v2/checkLog", true);//通过Post方式打开连接
+        ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");//定义传输的文件HTTP头信息
+        ajax.send("dbList[0]="+datetime+"&user4a="+userInfo.MAIN_ID+"&follow="+follow+"&system=CRM");//发送POST数据
+        ajax.onreadystatechange = function(){//获取执行状态
+          //如果执行状态成功，那么就把返回信息写到指定的层里
+          if (ajax.readyState == 4 && ajax.status == 200){
+           var dat = JSON.parse(ajax.responseText)
+            console.log(dat);
+            var fArr = [];
+            if(dat.data.length>0){
+              for(var i = 0;i<dat.data.length;i++){
+                if(dat.data[i].doing.length>0){
+                  for(var j = 0;j<dat.data[i].doing.length;j++){
+                  	var text = '<li class="am2-item am2-item-content t-bgwhite" style="padding:10px 15px;marginBottom:5px"><div class="am2-item-main"><div class="am2-item-title-row"><h3 class="am2-item-title">'+dat.data[i].doing[j].doingContent+'</h3><div class="am2-item-after" style="fontSize:12px">'+formatDateTime(Number(dat.data[i].doing[j].doingTime))+'</div></div><div class="am2-item-desc" style="fontSize:12px">机型：'+dat.data[i].device+'</div><div class="am2-item-desc" style="fontSize:12px">用户：'+dat.data[i].user4a+'@@'+dat.data[i].follow+'</div></div></li>';
+
+                  	if(!!chooseName){
+                  		if(chooseName == dat.data[i].doing[j].doingContent){
+	                  		fArr.push(text)
+	                  	}
+	                }else{
+	                  	fArr.push(text)
+	                }
+                  }
+                }
+              }
+            }else{
+              fArr.push('<li class="t-cen">无当月数据</li>')
+            }
+            document.querySelector("#flist").innerHTML = fArr.join('');
+          }else if(ajax.status == 504){
+            document.querySelector("#flist").innerHTML = '<li class="t-cen">网络失败，请重新选择时间段</li>';
+          }
+        }
+      }
+      
+      function formatDateTime(inputTime) {  //时间戳转时间
+          var date = new Date(inputTime);
+          var y = date.getFullYear();  
+          var m = date.getMonth() + 1;  
+          m = m < 10 ? ('0' + m) : m;  
+          var d = date.getDate();  
+          d = d < 10 ? ('0' + d) : d;  
+          var h = date.getHours();
+          h = h < 10 ? ('0' + h) : h;
+          var minute = date.getMinutes();
+          var second = date.getSeconds();
+          minute = minute < 10 ? ('0' + minute) : minute;  
+          second = second < 10 ? ('0' + second) : second; 
+          return y + '/' + m + '/' + d+' '+h+':'+minute+':'+second;  
+      };
+    </script>
+</html>
