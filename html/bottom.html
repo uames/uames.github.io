@@ -73,7 +73,7 @@
           }else{
             userInfo = JSON.parse(yspCheckIn.getTicket())
           }
-
+          console.log(userInfo);
             //“我的”页面list遍历
           document.querySelector("#mainId").innerHTML = "主账号："+userInfo.MAIN_ID;
           document.querySelector("#userCode").innerHTML = "从账号："+userInfo.userCode;
@@ -333,7 +333,7 @@
               second = second < 10 ? ('0' + second) : second; 
               return y + '/' + m + '/' + d+' '+h+':'+minute+':'+second;  
           };
-        },2000);
+        },3000);
       }
     </script>
 </html>
