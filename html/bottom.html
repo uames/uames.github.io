@@ -68,7 +68,7 @@
       window.onload = function(){
         var userInfo = {MAIN_ID:"mt_chengliang",userCode:"y282"};
         if(isIOS){
-          userInfo = yspNXUser.getInfo()
+          userInfo = JSON.parse(yspNXUser.getInfo())
         }else{
           userInfo = JSON.parse(yspCheckIn.getTicket())
         }
