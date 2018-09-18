@@ -75,8 +75,8 @@
         if(mylist[i].right == "icon"){
           text = '<span>〉</span>'
         }else if(mylist[i].right == "text"){
-          text = '<div class="am2-item-after">6.7.0</div>'
-          //'+(isIOS?window.yspUser.nowVersion():window.yspCheckIn.nowVersion())+'
+          text = '<div class="am2-item-after">' + 
+            (isIOS?window.yspUser.nowVersion():window.yspCheckIn.nowVersion()) + '</div>';
         }else if(mylist[i].right == "btn"){
           text = '<div class="am2-item-after"><label class="am2-switch"><input type="checkbox" value="on" checked="1"/><span class="am2-switch-label"></span></label></div>'
         }
