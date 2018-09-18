@@ -203,15 +203,33 @@
           }
         }
       }
+      //“问题反馈”页面list遍历
+      var qlist = ["功能异常","优化建议","安全问题","其他问题"],
+      qArr = [];
+      for(var i = 0;i<qlist.length;i++){
+        qArr.push('<li class="am2-item am2-item-linked" style="margin:0 10px;border-top:0"><label class="am2-switch am2-select-item-switch" style="margin:0 10px"><input type="checkbox"/><span class="am2-switch-radio"></span></label><h3 class="am2-item-title">'+qlist[i]+'</h3></li>')
+      }
+      document.querySelector("#qlist").innerHTML = qArr.join('')
+
+      var ali = document.querySelectorAll("#qlist li");
+      for(var i = 0;i<ali.length;i++){//点击问题反馈checkbox
+        ali[i].onclick = function(e){
+          if(this.querySelector("input").checked){
+            this.querySelector("input").checked = "";
+          }else{
+            this.querySelector("input").checked= true;
+          }
+        }
+      }
+      var userInfo = {MAIN_ID:"mt_chengliang",userCode:"y282"};
       window.onload = function(){
         setTimeout(function(){
-          var userInfo = {MAIN_ID:"mt_chengliang",userCode:"y282"};
           if(isIOS){
             userInfo = JSON.parse(yspNXUser.getInfo())
           }else{
             userInfo = JSON.parse(yspCheckIn.getTicket())
           }
-            //“我的”页面list遍历
+          //“我的”页面list遍历
           document.querySelector("#mainId").innerHTML = "主账号："+userInfo.MAIN_ID;
           document.querySelector("#userCode").innerHTML = "从账号："+userInfo.userCode;
           var mylist = [{text:"业务切换",right:"icon"},{text:"修改手势密码",right:"icon"},{text:"清空缓存",right:""},{text:"当前版本",right:"text"},{text:"自动更新",right:"btn"}],
@@ -222,22 +240,16 @@
               text = '<span>〉</span>'
             }else if(mylist[i].right == "text"){
               text = '<div class="am2-item-after">' + 
+                // '6.7.0</div>';
                 (isIOS?window.yspNXUser.nowVersion():window.yspCheckIn.nowVersion()) + '</div>';
             }else if(mylist[i].right == "btn"){
               text = '<div class="am2-item-after"><label class="am2-switch"><input type="checkbox" value="on" checked="1"/><span class="am2-switch-label"></span></label></div>'
             }
             myArr.push('<li class="am2-item am2-item-linked" name="'+mylist[i].text+'" style="margin:0 10px;border-top:0"><h3 class="am2-item-title">'+mylist[i].text+'</h3>'+text+'</li>')
           }
+          console.log(document.querySelector("#mylist"));
           document.querySelector("#mylist").innerHTML = myArr.join('')
 
-
-            //“问题反馈”页面list遍历
-          var qlist = ["功能异常","优化建议","安全问题","其他问题"],
-              qArr = [];
-          for(var i = 0;i<qlist.length;i++){
-            qArr.push('<li class="am2-item am2-item-linked" style="margin:0 10px;border-top:0"><label class="am2-switch am2-select-item-switch" style="margin:0 10px"><input type="checkbox"/><span class="am2-switch-radio"></span></label><h3 class="am2-item-title">'+qlist[i]+'</h3></li>')
-          }
-          document.querySelector("#qlist").innerHTML = qArr.join('')
 
           //“足迹”页面list遍历
           saveintroduce(201808,userInfo.MAIN_ID,userInfo.userCode,"");
@@ -287,16 +299,7 @@
             saveintroduce(this.previousElementSibling.value.replace("-",""),userInfo.MAIN_ID,userInfo.userCode,chooseName);
           }
           
-          var ali = document.querySelectorAll("#qlist li");
-          for(var i = 0;i<ali.length;i++){//点击问题反馈checkbox
-            ali[i].onclick = function(e){
-              if(this.querySelector("input").checked){
-                this.querySelector("input").checked = "";
-              }else{
-                this.querySelector("input").checked= true;
-              }
-            }
-          }
+          
           var textValueLength = 0;
           document.querySelector(".textareaDiv textarea").onchange = function(e){//问题反馈输入框
             textValueLength = this.value.length;
