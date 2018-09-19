@@ -230,11 +230,11 @@
       }
       var userInfo = {MAIN_ID:"mt_chengliang",userCode:"y282"};
       window.initBottom = function(){
-          // if(isIOS){
-          //   userInfo = JSON.parse(yspNXUser.getInfo())
-          // }else{
-          //   userInfo = JSON.parse(yspCheckIn.getTicket())
-          // }
+          if(isIOS){
+            userInfo = JSON.parse(yspNXUser.getInfo())
+          }else{
+            userInfo = JSON.parse(yspCheckIn.getTicket())
+          }
           //“我的”页面list遍历
           document.querySelector("#mainId").innerHTML = "主账号："+userInfo.MAIN_ID;
           document.querySelector("#userCode").innerHTML = "从账号："+userInfo.userCode;
@@ -246,8 +246,8 @@
               text = '<span>〉</span>'
             }else if(mylist[i].right == "text"){
               text = '<div class="am2-item-after">' + 
-                '6.7.0</div>';
-                // (isIOS?window.yspNXUser.nowVersion():window.yspCheckIn.nowVersion()) + '</div>';
+                // '6.7.0</div>';
+                (isIOS?window.yspNXUser.nowVersion():window.yspCheckIn.nowVersion()) + '</div>';
             }else if(mylist[i].right == "btn"){
               text = '<div class="am2-item-after"><label class="am2-switch"><input type="checkbox" value="on" checked="1"/><span class="am2-switch-label"></span></label></div>'
             }
