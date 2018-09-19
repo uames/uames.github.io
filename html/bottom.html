@@ -222,8 +222,7 @@
         }
       }
       var userInfo = {MAIN_ID:"mt_chengliang",userCode:"y282"};
-      window.onload = function(){
-        setTimeout(function(){
+      window.initBottom = function(){
           if(isIOS){
             userInfo = JSON.parse(yspNXUser.getInfo())
           }else{
@@ -247,7 +246,6 @@
             }
             myArr.push('<li class="am2-item am2-item-linked" name="'+mylist[i].text+'" style="margin:0 10px;border-top:0"><h3 class="am2-item-title">'+mylist[i].text+'</h3>'+text+'</li>')
           }
-          console.log(document.querySelector("#mylist"));
           document.querySelector("#mylist").innerHTML = myArr.join('')
 
 
@@ -334,10 +332,6 @@
               window.yspCheckIn.autoUpdate();
             }
           }
-          
-          
-
-        },3000);
       }
     </script>
 </html>
