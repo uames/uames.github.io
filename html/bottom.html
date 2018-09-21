@@ -126,7 +126,7 @@
         if(isIOS){
           return JSON.parse(yspNXUser.getInfo());
         }else{
-          return JSON.parse(yspCheckIn.getTicket());
+          return JSON.parse(yspCheckIns.getTicket());
         }
       }
       
@@ -211,7 +211,7 @@
         if(isIOS){
           window.yspNXUser.loginOut();
         }else{
-          window.yspCheckIn.loginOut();
+          window.yspCheckIns.loginOut();
         }
       }
 
@@ -301,7 +301,7 @@
             }else if(mylist[i].right == "text"){
               text = '<div class="am2-item-after">' + 
                 (!isEnterplorer?'6.7.0</div>':
-                (isIOS?window.yspNXUser.nowVersion():window.yspCheckIn.nowVersion())) + '</div>';
+                (isIOS?window.yspNXUser.nowVersion():window.yspCheckIns.nowVersion())) + '</div>';
             }else if(mylist[i].right == "btn"){
               text = '<div class="am2-item-after"><label class="am2-switch"><input type="checkbox" value="on" checked="1"/><span class="am2-switch-label"></span></label></div>'
             }
@@ -369,28 +369,28 @@
             if(isIOS){
               window.yspNXUser.changeOperation();
             }else{
-              window.yspCheckIn.changeOperation();
+              window.yspCheckIns.changeOperation();
             }
           }
           document.querySelector("#mylist li[name='修改手势密码']").onclick = function(e){//点击修改手势密码
             if(isIOS){
               window.yspNXUser.changePassword();
             }else{
-              window.yspCheckIn.changePassword();
+              window.yspCheckIns.changePassword();
             }
           }
           document.querySelector("#mylist li[name='清空缓存']").onclick = function(e){//点击清空缓存
             if(isIOS){
               window.yspNXUser.clearCache();
             }else{
-              window.yspCheckIn.clearCache();
+              window.yspCheckIns.clearCache();
             }
           }
           document.querySelector("#mylist li[name='自动更新']").onclick = function(e){//点击自动更新
             if(isIOS){
               window.yspNXUser.autoUpdate();
             }else{
-              window.yspCheckIn.autoUpdate();
+              window.yspCheckIns.autoUpdate();
             }
           }
           var orderDatas = [];
