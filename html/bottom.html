@@ -303,7 +303,7 @@
                 (!isEnterplorer?'6.7.0</div>':
                 (isIOS?window.yspNXUser.nowVersion():window.yspUser.nowVersion())) + '</div>';
             }else if(mylist[i].right == "btn"){
-              text = '<div class="am2-item-after"><label class="am2-switch"><input type="checkbox" value="on" '+(!isEnterplorer||(isIOS?window.yspNXUser.getAutoUpdate():window.yspUser.getAutoUpdate())?'checked':'')+'/><span class="am2-switch-label"></span></label></div>'
+              text = '<div class="am2-item-after"><label class="am2-switch"><input type="checkbox" value="on" '+(!isEnterplorer||(isIOS?window.yspNXUser.getAutoUpdate && window.yspNXUser.getAutoUpdate():window.yspUser.getAutoUpdate&&window.yspUser.getAutoUpdate())?'checked':'')+'/><span class="am2-switch-label"></span></label></div>'
             }
             myArr.push('<li class="am2-item am2-item-linked" name="'+mylist[i].text+'" style="margin:0 10px;border-top:0;padding-left:4px;min-height:3rem;"><img style="    width: 15px;margin-right: 10px;" src="'+mylist[i].base64+'" /><h3 class="am2-item-title">'+mylist[i].text+'</h3>'+text+'</li>')
           }
