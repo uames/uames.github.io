@@ -138,7 +138,7 @@
           ajax = new XMLHttpRequest();if(ajax.overrideMimeType){ajax.overrideMimeType("text/xml");}
         }
         if (!ajax){_alert("不能创建XMLHttpRequest对象实例.");return false;}// 异常，创建对象实例失败
-        ajax.open("POST", "http://218.203.146.211:8081/v2/checkLog", true);//通过Post方式打开连接
+        ajax.open("POST", "http://218.203.103.203:8081/v2/checkLog", true);//通过Post方式打开连接
         ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");//定义传输的文件HTTP头信息
         ajax.send("dbList[0]="+datetime+"&user4a="+userInfo.MAIN_ID+"&follow="+follow+"&system=CRM");//发送POST数据
         ajax.onreadystatechange = function(){//获取执行状态
@@ -251,7 +251,7 @@
           ajax = new XMLHttpRequest();if(ajax.overrideMimeType){ajax.overrideMimeType("text/xml");}
         }
         if (!ajax){_alert("不能创建XMLHttpRequest对象实例.");return false;}// 异常，创建对象实例失败
-        ajax.open("POST", "http://218.203.146.209:8000/v2/suggesstion", true);//通过Post方式打开连接
+        ajax.open("POST", "http://218.203.103.203:8081/v2/suggesstion", true);//通过Post方式打开连接
         ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");//定义传输的文件HTTP头信息
         ajax.send("types[0]="+types[0]+"&types[1]="+types[1]+"&types[2]="+types[2]+"&types[3]="+types[3]+"&user4a="+userInfo.MAIN_ID+"&contents="+contents+"&imgnum='"+imgnum+"'"+img);//发送POST数据
         ajax.onreadystatechange = function(){//获取执行状态

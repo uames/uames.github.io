@@ -220,7 +220,7 @@
 			var showLoading = function(text){
 				$('#loading').show();
 			}
-			var host = '218.203.146.211',
+			var host = '218.203.103.203',
 				port = ':8081';
 			$(".loginBtn").click(function(){
 				if(typeof(enterplorer_login)=='undefined'){
@@ -290,7 +290,7 @@
 								userInfo.userCode = userCodes[0];//默认登录第一个从账号
 								enterplorer_login.setInfo(JSON.stringify(userInfo));
 								if(!ucode){//只有首次登录需要手动提交表单
-									enterplorer_login.toCrmRun(getFnName('submitForm()'));
+									// enterplorer_login.toCrmRun(getFnName('submitForm()'));
 								}else{//非首次登录要退出，然后会自动重新登录
 									enterplorer_login.toCrmRun(getFnName('exit("CRM")'));
 								}
