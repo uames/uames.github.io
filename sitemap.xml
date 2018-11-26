@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://uames.github.io/dist/index.html</loc>
+    
+    <lastmod>2018-11-26T10:04:10.050Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://uames.github.io/2017/javascript/%E5%9F%BA%E4%BA%8Ehtml5%E7%9A%84canvas%E7%9A%84%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</loc>
     
     <lastmod>2018-01-15T09:26:38.840Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://uames.github.io/2017/%E5%88%86%E4%BA%ABXX-Net%E7%9A%84%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB%E4%BB%A3%E7%90%86%E6%96%B9%E6%B3%95/</loc>
     
     <lastmod>2018-01-15T08:33:00.931Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://uames.github.io/2017/nginx-vhost%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B/</loc>
-    
-    <lastmod>2018-01-15T08:33:00.930Z</lastmod>
     
   </url>
   
@@ -37,14 +37,21 @@
   </url>
   
   <url>
-    <loc>https://uames.github.io/2017/javascript/%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BDjs%E5%92%8Ccss%EF%BC%8C%E5%8A%A0%E8%BD%BD%E6%88%90%E5%8A%9F%E5%90%8E%E5%9B%9E%E8%B0%83/</loc>
+    <loc>https://uames.github.io/2017/nginx-vhost%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B/</loc>
+    
+    <lastmod>2018-01-15T08:33:00.930Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://uames.github.io/2017/koa%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2018-01-15T08:33:00.929Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://uames.github.io/2017/koa%E5%BB%BA%E7%AB%99%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://uames.github.io/2017/javascript/%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BDjs%E5%92%8Ccss%EF%BC%8C%E5%8A%A0%E8%BD%BD%E6%88%90%E5%8A%9F%E5%90%8E%E5%9B%9E%E8%B0%83/</loc>
     
     <lastmod>2018-01-15T08:33:00.929Z</lastmod>
     
@@ -135,13 +142,6 @@
   </url>
   
   <url>
-    <loc>https://uames.github.io/2016/2016-05-17-taobao-sui-first-use/</loc>
-    
-    <lastmod>2018-01-15T08:33:00.921Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://uames.github.io/2016/2016-04-15-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/</loc>
     
     <lastmod>2018-01-15T08:33:00.921Z</lastmod>
@@ -149,14 +149,21 @@
   </url>
   
   <url>
-    <loc>https://uames.github.io/2015/2015-11-07-CSS-tips/</loc>
+    <loc>https://uames.github.io/2016/2016-05-17-taobao-sui-first-use/</loc>
+    
+    <lastmod>2018-01-15T08:33:00.921Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://uames.github.io/2015/2015-11-10-centos%E4%B8%ADmysql%E4%B9%B1%E7%A0%81%EF%BC%8C%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8Cmvn/</loc>
     
     <lastmod>2018-01-15T08:33:00.920Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://uames.github.io/2015/2015-11-10-centos%E4%B8%ADmysql%E4%B9%B1%E7%A0%81%EF%BC%8C%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8Cmvn/</loc>
+    <loc>https://uames.github.io/2015/2015-11-07-CSS-tips/</loc>
     
     <lastmod>2018-01-15T08:33:00.920Z</lastmod>
     
