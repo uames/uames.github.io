@@ -51,14 +51,14 @@
   </url>
   
   <url>
-    <loc>https://uames.github.io/2017/javascript/audio%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E5%8A%A0%E8%BD%BD%E6%97%B6%E5%91%88%E7%8E%B0%E5%8A%A0%E8%BD%BD%E4%B8%AD%E7%8A%B6%E6%80%81%EF%BC%8C%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%AF%95%E6%94%B9%E4%B8%BA%E6%92%AD%E6%94%BE%E7%8A%B6%E6%80%81%E5%B9%B6%E5%BC%80%E5%A7%8B%E8%AE%A1%E6%97%B6/</loc>
+    <loc>https://uames.github.io/2017/html/drag-img-player/</loc>
     
     <lastmod>2018-01-15T08:33:00.928Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://uames.github.io/2017/html/drag-img-player/</loc>
+    <loc>https://uames.github.io/2017/javascript/audio%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E5%8A%A0%E8%BD%BD%E6%97%B6%E5%91%88%E7%8E%B0%E5%8A%A0%E8%BD%BD%E4%B8%AD%E7%8A%B6%E6%80%81%EF%BC%8C%E5%8A%A0%E8%BD%BD%E5%AE%8C%E6%AF%95%E6%94%B9%E4%B8%BA%E6%92%AD%E6%94%BE%E7%8A%B6%E6%80%81%E5%B9%B6%E5%BC%80%E5%A7%8B%E8%AE%A1%E6%97%B6/</loc>
     
     <lastmod>2018-01-15T08:33:00.928Z</lastmod>
     
@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://uames.github.io/2016/apache%E5%A4%9A%E7%AB%AF%E5%8F%A3%E4%B8%8E%E8%99%9A%E6%8B%9F%E5%9F%9F%E5%90%8D/</loc>
+    <loc>https://uames.github.io/2017/css/%E7%BA%AFcss%E5%8A%A0%E8%BD%BD%E4%B8%AD%E5%8A%A8%E7%94%BB/</loc>
     
     <lastmod>2018-01-15T08:33:00.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://uames.github.io/2017/css/%E7%BA%AFcss%E5%8A%A0%E8%BD%BD%E4%B8%AD%E5%8A%A8%E7%94%BB/</loc>
+    <loc>https://uames.github.io/2016/apache%E5%A4%9A%E7%AB%AF%E5%8F%A3%E4%B8%8E%E8%99%9A%E6%8B%9F%E5%9F%9F%E5%90%8D/</loc>
     
     <lastmod>2018-01-15T08:33:00.925Z</lastmod>
     
@@ -107,14 +107,14 @@
   </url>
   
   <url>
-    <loc>https://uames.github.io/2017/AppCache%E4%B8%8EServiceWorkers/</loc>
+    <loc>https://uames.github.io/2016/2016-07-10-about%20js%20front/</loc>
     
     <lastmod>2018-01-15T08:33:00.923Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://uames.github.io/2016/2016-07-10-about%20js%20front/</loc>
+    <loc>https://uames.github.io/2017/AppCache%E4%B8%8EServiceWorkers/</loc>
     
     <lastmod>2018-01-15T08:33:00.923Z</lastmod>
     
@@ -135,13 +135,6 @@
   </url>
   
   <url>
-    <loc>https://uames.github.io/2016/2016-04-15-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/</loc>
-    
-    <lastmod>2018-01-15T08:33:00.921Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://uames.github.io/2016/2016-05-17-taobao-sui-first-use/</loc>
     
     <lastmod>2018-01-15T08:33:00.921Z</lastmod>
@@ -149,14 +142,21 @@
   </url>
   
   <url>
-    <loc>https://uames.github.io/2015/2015-11-10-centos%E4%B8%ADmysql%E4%B9%B1%E7%A0%81%EF%BC%8C%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8Cmvn/</loc>
+    <loc>https://uames.github.io/2016/2016-04-15-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/</loc>
+    
+    <lastmod>2018-01-15T08:33:00.921Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://uames.github.io/2015/2015-11-07-CSS-tips/</loc>
     
     <lastmod>2018-01-15T08:33:00.920Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://uames.github.io/2015/2015-11-07-CSS-tips/</loc>
+    <loc>https://uames.github.io/2015/2015-11-10-centos%E4%B8%ADmysql%E4%B9%B1%E7%A0%81%EF%BC%8C%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8Cmvn/</loc>
     
     <lastmod>2018-01-15T08:33:00.920Z</lastmod>
     
