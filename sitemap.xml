@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://uames.github.io/2019/2019-03-11-docker%E4%B9%8Bdockertags%E6%9F%A5%E7%9C%8Bimage%E6%89%80%E6%9C%89tag/</loc>
+    
+    <lastmod>2019-03-13T03:42:17.678Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://uames.github.io/2019/2019-03-13-docker-operation-record/</loc>
+    
+    <lastmod>2019-03-13T03:41:11.906Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://uames.github.io/2017/javascript/%E5%9F%BA%E4%BA%8Ehtml5%E7%9A%84canvas%E7%9A%84%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</loc>
     
     <lastmod>2018-01-15T09:26:38.840Z</lastmod>
@@ -23,14 +37,14 @@
   </url>
   
   <url>
-    <loc>https://uames.github.io/2017/nginx-vhost%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B/</loc>
+    <loc>https://uames.github.io/2016/%E5%85%B3%E4%BA%8E%E8%B7%A8%E5%9F%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2018-01-15T08:33:00.930Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://uames.github.io/2016/%E5%85%B3%E4%BA%8E%E8%B7%A8%E5%9F%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://uames.github.io/2017/nginx-vhost%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B/</loc>
     
     <lastmod>2018-01-15T08:33:00.930Z</lastmod>
     
@@ -65,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://uames.github.io/2016/gulp/gulp%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://uames.github.io/2017/html/box-game/</loc>
     
     <lastmod>2018-01-15T08:33:00.927Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://uames.github.io/2017/html/box-game/</loc>
+    <loc>https://uames.github.io/2016/gulp/gulp%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2018-01-15T08:33:00.927Z</lastmod>
     

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://uames.github.io/"/>
-  <updated>2018-01-15T09:26:38.840Z</updated>
+  <updated>2019-03-13T03:41:11.906Z</updated>
   <id>https://uames.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker操作记录</title>
+    <link href="https://uames.github.io/2019/2019-03-13-docker-operation-record/"/>
+    <id>https://uames.github.io/2019/2019-03-13-docker-operation-record/</id>
+    <published>2019-03-13T02:40:27.000Z</published>
+    <updated>2019-03-13T03:41:11.906Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="搜索images中包含mysql的镜像"><a href="#搜索images中包含mysql的镜像" class="headerlink" title="搜索images中包含mysql的镜像"></a>搜索images中包含mysql的镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure><h4 id="获取mysql镜像，且指定其tag为5-7-22"><a href="#获取mysql镜像，且指定其tag为5-7-22" class="headerlink" title="获取mysql镜像，且指定其tag为5.7.22"></a>获取mysql镜像，且指定其tag为5.7.22</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.7.22</span><br></pre></td></tr></table></figure><h4 id="查看当前已pull的本地的images-镜像"><a href="#查看当前已pull的本地的images-镜像" class="headerlink" title="查看当前已pull的本地的images(镜像)"></a>查看当前已pull的本地的images(镜像)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure><h4 id="运行一个mysql容器，将容器的3306端口映射到本机的3308端口"><a href="#运行一个mysql容器，将容器的3306端口映射到本机的3308端口" class="headerlink" title="运行一个mysql容器，将容器的3306端口映射到本机的3308端口"></a>运行一个mysql容器，将容器的3306端口映射到本机的3308端口</h4><p>-d: Run container in background and print container ID</p><p>-p: Publish a container’s port(s) to the host</p><p>-e: Set environment variables</p><p>–name string: Assign a name to the container<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name dev2-mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3308:3306 -d mysql:5.7.22</span><br></pre></td></tr></table></figure></p><h4 id="通过执行bash登录dev2-mysql容器"><a href="#通过执行bash登录dev2-mysql容器" class="headerlink" title="通过执行bash登录dev2-mysql容器"></a>通过执行bash登录dev2-mysql容器</h4><p>-i: Keep STDIN open even if not attached</p><p>-t: Allocate a pseudo-TTY,<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it dev2-mysql bash</span><br></pre></td></tr></table></figure></p><h4 id="列出所有容器"><a href="#列出所有容器" class="headerlink" title="列出所有容器"></a>列出所有容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure><h4 id="停止、删除容器"><a href="#停止、删除容器" class="headerlink" title="停止、删除容器"></a>停止、删除容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop dev2-mysql</span><br><span class="line">docker rm dev2-mysql</span><br></pre></td></tr></table></figure><h4 id="运行容器并将一个本地目录映射到容器中。"><a href="#运行容器并将一个本地目录映射到容器中。" class="headerlink" title="运行容器并将一个本地目录映射到容器中。"></a>运行容器并将一个本地目录映射到容器中。</h4><p>-v: Bind mount a volume<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name mynginx -p 8080:80 -v /d/ysp:/usr/share/nginx nginx</span><br></pre></td></tr></table></figure></p><h4 id="查看当前运行中的容器占用的系统资源"><a href="#查看当前运行中的容器占用的系统资源" class="headerlink" title="查看当前运行中的容器占用的系统资源"></a>查看当前运行中的容器占用的系统资源</h4><p>–no-stream: Disable streaming stats and only pull the first result<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stats --no-stream</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;搜索images中包含mysql的镜像&quot;&gt;&lt;a href=&quot;#搜索images中包含mysql的镜像&quot; class=&quot;headerlink&quot; title=&quot;搜索images中包含mysql的镜像&quot;&gt;&lt;/a&gt;搜索images中包含mysql的镜像&lt;/h4&gt;&lt;figu
+      
+    
+    </summary>
+    
+      <category term="Uames" scheme="https://uames.github.io/categories/Uames/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>docker之dockertags查看image所有tag</title>
+    <link href="https://uames.github.io/2019/2019-03-11-docker%E4%B9%8Bdockertags%E6%9F%A5%E7%9C%8Bimage%E6%89%80%E6%9C%89tag/"/>
+    <id>https://uames.github.io/2019/2019-03-11-docker之dockertags查看image所有tag/</id>
+    <published>2019-03-11T02:14:01.000Z</published>
+    <updated>2019-03-13T03:42:17.678Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="鉴于昨天docker-pull-mysql自动安装了最终版（latest）的导致无法使用，后面才找到docker-pull-mysql-5-7-22可以下载5-7-22版的，但是怎么知道有这个tag版本存在呢？搜索docker-check-all-version-of-an-image找到如下代码，可在-usr-local-bin-目录下-touch-dockertags，然后放入下面的代码，再chmod-x-dockertags-赋予其运行的权限，然后dockertags-mysql即可查看到不同tag的mysql了。"><a href="#鉴于昨天docker-pull-mysql自动安装了最终版（latest）的导致无法使用，后面才找到docker-pull-mysql-5-7-22可以下载5-7-22版的，但是怎么知道有这个tag版本存在呢？搜索docker-check-all-version-of-an-image找到如下代码，可在-usr-local-bin-目录下-touch-dockertags，然后放入下面的代码，再chmod-x-dockertags-赋予其运行的权限，然后dockertags-mysql即可查看到不同tag的mysql了。" class="headerlink" title="鉴于昨天docker pull mysql自动安装了最终版（latest）的导致无法使用，后面才找到docker pull mysql:5.7.22可以下载5.7.22版的，但是怎么知道有这个tag版本存在呢？搜索docker check all version of an image找到如下代码，可在/usr/local/bin/目录下 touch dockertags，然后放入下面的代码，再chmod +x dockertags 赋予其运行的权限，然后dockertags mysql即可查看到不同tag的mysql了。"></a>鉴于昨天docker pull mysql自动安装了最终版（latest）的导致无法使用，后面才找到docker pull mysql:5.7.22可以下载5.7.22版的，但是怎么知道有这个tag版本存在呢？搜索docker check all version of an image找到如下代码，可在/usr/local/bin/目录下 touch dockertags，然后放入下面的代码，再chmod +x dockertags 赋予其运行的权限，然后dockertags mysql即可查看到不同tag的mysql了。</h3><h4 id="dockertags查看镜像对应的所有tag，dockertags命令程序需要自己创建。"><a href="#dockertags查看镜像对应的所有tag，dockertags命令程序需要自己创建。" class="headerlink" title="dockertags查看镜像对应的所有tag，dockertags命令程序需要自己创建。"></a>dockertags查看镜像对应的所有tag，dockertags命令程序需要自己创建。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dockertags mysql</span><br></pre></td></tr></table></figure><p>#!/bin/bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -lt 1 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">cat &lt;&lt; HELP</span><br><span class="line"></span><br><span class="line">dockertags  --  list all tags <span class="keyword">for</span> a Docker image on a remote registry.</span><br><span class="line"></span><br><span class="line">EXAMPLE: </span><br><span class="line">    - list all tags <span class="keyword">for</span> ubuntu:</span><br><span class="line">       dockertags ubuntu</span><br><span class="line"></span><br><span class="line">    - list all php tags containing apache:</span><br><span class="line">       dockertags php apache</span><br><span class="line"></span><br><span class="line">HELP</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">image=<span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line">tags=`wget -q https://registry.hub.docker.com/v1/repositories/<span class="variable">$&#123;image&#125;</span>/tags -O -  | sed -e <span class="string">'s/[][]//g'</span> -e <span class="string">'s/"//g'</span> -e <span class="string">'s/ //g'</span> | tr <span class="string">'&#125;'</span> <span class="string">'\n'</span>  | awk -F: <span class="string">'&#123;print $3&#125;'</span>`</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -n <span class="string">"<span class="variable">$2</span>"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    tags=` <span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;tags&#125;</span>"</span> | grep <span class="string">"<span class="variable">$2</span>"</span> `</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;tags&#125;</span>"</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;鉴于昨天docker-pull-mysql自动安装了最终版（latest）的导致无法使用，后面才找到docker-pull-mysql-5-7-22可以下载5-7-22版的，但是怎么知道有这个tag版本存在呢？搜索docker-check-all-version-
+      
+    
+    </summary>
+    
+      <category term="Uames" scheme="https://uames.github.io/categories/Uames/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>基于html5的canvas的图片压缩工具</title>
@@ -441,51 +487,6 @@
 &lt;li&gt;配置文件&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;项目使用require + jquery，另外不间断引入一些其它的插件和组件如layer,mui,sui.&lt;br&gt;另外自己封装了一些功能性的js，用于复用大
-      
-    
-    </summary>
-    
-      <category term="Uames" scheme="https://uames.github.io/categories/Uames/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>阿里手机H5应用SUI库首次使用&lt;br/&gt;(日期选择)</title>
-    <link href="https://uames.github.io/2016/2016-05-17-taobao-sui-first-use/"/>
-    <id>https://uames.github.io/2016/2016-05-17-taobao-sui-first-use/</id>
-    <published>2016-05-17T10:41:58.000Z</published>
-    <updated>2018-01-15T08:33:00.921Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><p>用一些组件可以加快开发的速度，就如这里，使用了它日期选择的主机，界面挺漂亮的~<br>就是开发的时候，按照文档发现有点小问题，于是把例子copy到本地，精简之后，发现下面的代码，<code>&lt;div class=&quot;page&quot;&gt;&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;&lt;/div&gt;</code>不能再减了，另外sm.js必须要在页面加载后再加载，最后要$.init()启动组件。</p></li><li><p>另外，你或许会发现，这里用了zepto而不是jquery，如果项目是用jquery的。在github上有个<a href="https://github.com/sdc-alibaba/SUI-Mobile/issues/143" target="_blank" rel="noopener">issues</a>专门讨论这个问题。</p></li></ul><p>直接复制下面的代码在浏览器打开就能看到效果啦~<br>或者打开<a href="http://m.sui.taobao.org/demos/calendar/" target="_blank" rel="noopener">这个链接</a></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=1, maximum-scale=1"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"http://g.alicdn.com/msui/sm/0.6.2/css/sm.css"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">'text/javascript'</span> <span class="attr">src</span>=<span class="string">'http://g.alicdn.com/sj/lib/zepto/zepto.js'</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"page"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"birthday"</span> <span class="attr">data-toggle</span>=<span class="string">"date"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">'text/javascript'</span> <span class="attr">src</span>=<span class="string">'http://g.alicdn.com/msui/sm/0.6.2/js/sm.js'</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">      $.init();</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p><img src="!--￼1--" alt="配图"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;用一些组件可以加快开发的速度，就如这里，使用了它日期选择的主机，界面挺漂亮的~&lt;br&gt;就是开发的时候，按照文档发现有点小问题，于是把例子copy到本地，精简之后，发现下面的代码，&lt;code&gt;&amp;lt;div class=&amp;quot;page&amp;quot;&amp;gt
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>开机自启动工作环境</title>
-    <link href="https://uames.github.io/2016/2016-04-15-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83/"/>
-    <id>https://uames.github.io/2016/2016-04-15-开机自启动工作环境/</id>
-    <published>2016-04-15T11:41:58.000Z</published>
-    <updated>2018-01-15T08:33:00.921Z</updated>
-    
-    <content type="html"><![CDATA[<p>公司的电脑，每天开机后都要启动工作的环境，打开chrome浏览器，启动wamp，打开QQ，打开atom，打开为知笔记，这些对于电脑很快的人来说或许不算什么，点击一下，不用几秒钟就开启了，可是对于我的电脑来说，从开机到启动这些软件，需要整整十分钟！每天都要浪费这十分钟，渐渐地我就不能忍了，于是我开始找资料，起初用window计划任务，后来发现全部用windows计划任务设置成开机后启动，会导致电脑开机后一下子开太多软件，卡死！于是继续找，终于找到了一个比较好的方法，如果你有更好的方法，请告诉我，谢谢~</p><p>下面就介绍一下这个方法。其实很简单啦。（笑）</p><p>启动程序cmd命令程序行（推荐用cmder），然后用<br><code>ping 127.0.0.1 -n 80 &gt; nul</code><br>使cmd命令暂停80秒，<br>接着继续启动程序，暂停，启动程序，暂停，最后，代码是这样的：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ping 127.0.0.1 -n 80 &gt; nul</span><br><span class="line">start <span class="string">""</span> <span class="string">"D:\wamp\wampmanager.exe"</span></span><br><span class="line">ping 127.0.0.1 -n 40 &gt; nul</span><br><span class="line">start <span class="string">""</span> <span class="string">"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"</span></span><br><span class="line">ping 127.0.0.1 -n 40 &gt; nul</span><br><span class="line">start <span class="string">""</span> <span class="string">"D:\work\goagent\XX-Net-2.5.1\start.vbs"</span></span><br><span class="line">ping 127.0.0.1 -n 40 &gt; nul</span><br><span class="line">start <span class="string">""</span> D:\work\soft\Listary\Listary.exe</span><br><span class="line">ping 127.0.0.1 -n 20 &gt; nul</span><br><span class="line">start <span class="string">""</span> D:\work\cmd\quick-link\QQ.lnk</span><br><span class="line">ping 127.0.0.1 -n 20 &gt; nul</span><br><span class="line">atom</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure><p>然后把上面的程序用.cmd结尾的文件保存好。<br>打开windows的任务计划程序，新建一个计划任务，设置成登陆后执行，调用刚刚保存的文件。<br>（这部分不懂请百度“windows任务计划程序”）</p><p>好啦~如果你要用的话，记得改上面的程序路径。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;公司的电脑，每天开机后都要启动工作的环境，打开chrome浏览器，启动wamp，打开QQ，打开atom，打开为知笔记，这些对于电脑很快的人来说或许不算什么，点击一下，不用几秒钟就开启了，可是对于我的电脑来说，从开机到启动这些软件，需要整整十分钟！每天都要浪费这十分钟，渐渐地
       
     
     </summary>
