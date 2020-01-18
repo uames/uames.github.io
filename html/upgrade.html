@@ -64,9 +64,12 @@
   $(function(){
     window.app = {};
     app.dynamicLoadingJs=function(e,d){var c=document.createElement("script");var b=document.getElementsByTagName("head")[0];c.src=e;if(typeof d==="function"){var a;c.onload=c.onreadystatechange=function(){if(!a&&(!c.readyState||/loaded|complete/.test(c.readyState))){c.onload=c.onreadystatechange=null;a=true;d()}}}b.appendChild(c)};
-
-    app.resPath = '/';
-    if(location.href.indexOf('.single')>-1 || location.href.indexOf('localhost-test')>-1){
+    
+    var href = location.href,
+        begin = href.indexOf('/',href.indexOf('://')+3),
+        end = href.indexOf('/',begin+1);
+    app.resPath = href.substring(begin,end) + '/';
+    if(app.resPath == '/html'){
       app.resPath = '/';
     }
 

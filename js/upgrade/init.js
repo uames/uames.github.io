@@ -4,10 +4,12 @@ app.bust = '49';
 setTimeout(function () {
   $("#xes_btn_RelLoad_box").show();
 }, 8000);
-app.imgPath = '/img/upgrade/';
-if(location.href.indexOf('.single')>-1 || location.href.indexOf('localhost')>-1){
-  app.imgPath = '/img/upgrade/';
-}
+app.imgPath = app.resPath+'img/upgrade/';
+
+// $('img').each(function(img,i){
+//   $(img).attr('src',app.resPath+$(img).attr('src'));
+// });
+
 app.dynamicLoadingJs(app.resPath+'js/upgrade/swipe.js?bust='+app.bust,function(){
   app.dynamicLoadingJs(app.resPath+'js/upgrade/upgrade.js?bust='+app.bust);
 });
